@@ -49,10 +49,12 @@ def _read_audio(path):
 
 
 def load_split(split: str, n: int | None = None):
-    """Returns list of dicts {id, path, text}; audio is read lazily per batch (saves RAM)."""
+    """Returns list of dicts {id, path, text, split, idx}; audio is read lazily per batch (saves RAM)."""
     d = DATA / f"fleurs_tr_{split}"
     meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
-    return [{"id": r["id"], "path": d / r["file"], "text": r["text"]} for r in (meta[:n] if n else meta)]
+    rows = meta[:n] if n else meta
+    return [{"id": r["id"], "path": d / r["file"], "text": r["text"], "split": split, "idx": i}
+            for i, r in enumerate(rows)]
 
 
 # ---------------- model ----------------
@@ -68,34 +70,53 @@ def load_model(state_dict_path: str | None = None, dtype=torch.float32):
     return proc, model.to(DEVICE).eval()
 
 
-_feat_cache = {}
+_mmap_cache = {}
 
 
-def features(proc, samples, cache=True):
-    """Log-mel features, cached on CPU in fp16 (they never change while we edit weights)."""
-    out = []
-    for s in samples:
-        key = str(s["path"])
-        if key not in _feat_cache:
-            f = proc.feature_extractor(_read_audio(s["path"]), sampling_rate=16000,
-                                       return_tensors="pt").input_features[0].half()
-            if not cache:
-                out.append(f); continue
-            _feat_cache[key] = f
-        out.append(_feat_cache[key])
-    return torch.stack(out)
+def get_split_features(proc, split: str, total_n: int):
+    """Build or memory-map a single (N, 80, 3000) fp16 log-mel array on disk (fast & near-zero RAM)."""
+    if split not in _mmap_cache:
+        npy_path = DATA / f"feats_{split}_{total_n}.npy"
+        if not npy_path.exists():
+            d = DATA / f"fleurs_tr_{split}"
+            meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))[:total_n]
+            mm = np.lib.format.open_memmap(npy_path, mode="w+", dtype=np.float16, shape=(len(meta), 80, 3000))
+            for i, r in enumerate(meta):
+                f = proc.feature_extractor(_read_audio(d / r["file"]), sampling_rate=16000,
+                                           return_tensors="np").input_features[0]
+                mm[i] = f.astype(np.float16)
+            mm.flush()
+            del mm
+        _mmap_cache[split] = np.load(npy_path, mmap_mode="r")
+    return _mmap_cache[split]
 
 
 @torch.no_grad()
-def transcribe(proc, model, samples, batch_size=24, cache=True, **gen_kw):
+def transcribe(proc, model, samples, batch_size=32, cache=True, **gen_kw):
     kw = dict(language="turkish", task="transcribe", num_beams=1, max_new_tokens=200)
     kw.update(gen_kw)
     hyps = []
-    for i in range(0, len(samples), batch_size):
-        batch = samples[i:i + batch_size]
-        feats = features(proc, batch, cache=cache).to(DEVICE, model.dtype)
-        ids = model.generate(feats, **kw)
-        hyps += proc.batch_decode(ids, skip_special_tokens=True)
+    if samples and "split" in samples[0]:
+        split = samples[0]["split"]
+        d = DATA / f"fleurs_tr_{split}"
+        total_n = len(json.loads((d / "meta.json").read_text(encoding="utf-8")))
+        all_feats = get_split_features(proc, split, total_n)
+        for i in range(0, len(samples), batch_size):
+            batch = samples[i:i + batch_size]
+            idxs = [s["idx"] for s in batch]
+            feats = torch.from_numpy(np.array(all_feats[idxs])).to(DEVICE, model.dtype)
+            ids = model.generate(feats, **kw)
+            hyps += proc.batch_decode(ids, skip_special_tokens=True)
+    else:
+        for i in range(0, len(samples), batch_size):
+            batch = samples[i:i + batch_size]
+            feats = torch.stack([
+                proc.feature_extractor(_read_audio(s["path"]), sampling_rate=16000,
+                                       return_tensors="pt").input_features[0]
+                for s in batch
+            ]).to(DEVICE, model.dtype)
+            ids = model.generate(feats, **kw)
+            hyps += proc.batch_decode(ids, skip_special_tokens=True)
     return hyps
 
 

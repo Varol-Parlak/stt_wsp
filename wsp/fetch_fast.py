@@ -12,11 +12,12 @@ for split, dst in (("validation", "dev"), ("test", "test")):
     out = DATA / f"fleurs_tr_{dst}"
     out.mkdir(parents=True, exist_ok=True)
     meta = []
-    for r in pq.read_table(p, columns=["id", "audio", "raw_transcription"]).to_pylist():
-        f = out / f"{r['id']}.wav"
+    for idx, r in enumerate(pq.read_table(p, columns=["id", "audio", "raw_transcription"]).to_pylist()):
+        uid = f"{idx:04d}_{r['id']}"
+        f = out / f"{uid}.wav"
         if not f.exists():
             f.write_bytes(r["audio"]["bytes"])
-        meta.append({"id": r["id"], "file": f.name, "text": r["raw_transcription"]})
+        meta.append({"id": uid, "file": f.name, "text": r["raw_transcription"]})
     (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
     print(dst, len(meta), "clips", flush=True)
 
