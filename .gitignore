@@ -20,6 +20,8 @@ wsp/data/
 *.wav
 *.mp3
 *.flac
+*.zip
+wsp/out/lora_adapter/
 
 # Temporary logs
 *.log

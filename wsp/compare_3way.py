@@ -97,21 +97,26 @@ def clip_wer(p: dict) -> float:
 def main():
     parser = argparse.ArgumentParser(description="3-Way Comparison: Baseline vs WSP vs LoRA")
     parser.add_argument("--adapter", default=None, help="Path to lora_adapter dir or whisper-base-tr-lora.zip")
+    parser.add_argument("--recompute", action="store_true", help="Force re-running LoRA evaluation even if JSONs exist")
     args = parser.parse_args()
 
     adapter_dir = resolve_adapter_dir(args.adapter)
     lora_dev_path = OUT / "lora_dev.json"
     lora_test_path = OUT / "lora_test.json"
 
-    proc, model = load_model()
-    lora_params = merge_lora_inplace(model, adapter_dir)
+    cfg = json.loads((adapter_dir / "adapter_config.json").read_text(encoding="utf-8"))
+    lora_sd = load_file(str(adapter_dir / "adapter_model.safetensors"))
+    lora_params = sum(v.numel() for v in lora_sd.values())
 
-    dev = load_split("dev")
-    test = load_split("test")
-    r_dev = evaluate(proc, model, dev, "lora/dev", save=lora_dev_path)
-    print(fmt(r_dev), flush=True)
-    r_test = evaluate(proc, model, test, "lora/test", save=lora_test_path)
-    print(fmt(r_test), flush=True)
+    if args.recompute or not (lora_dev_path.exists() and lora_test_path.exists()):
+        proc, model = load_model()
+        lora_params = merge_lora_inplace(model, adapter_dir)
+        dev = load_split("dev")
+        test = load_split("test")
+        r_dev = evaluate(proc, model, dev, "lora/dev", save=lora_dev_path, use_enc_cache=False, batch_size=8)
+        print(fmt(r_dev), flush=True)
+        r_test = evaluate(proc, model, test, "lora/test", save=lora_test_path, use_enc_cache=False, batch_size=8)
+        print(fmt(r_test), flush=True)
 
     # Load all 3 results for comparison
     base_dev = json.loads((OUT / "baseline_dev.json").read_text(encoding="utf-8"))
@@ -121,6 +126,19 @@ def main():
     base_test = json.loads((OUT / "baseline_test.json").read_text(encoding="utf-8"))
     wsp_test = json.loads((OUT / "wsp_test.json").read_text(encoding="utf-8"))
     lora_test = json.loads(lora_test_path.read_text(encoding="utf-8"))
+
+    bd, wd, ld = base_dev["metrics"], wsp_dev["metrics"], lora_dev["metrics"]
+    bt, wt, lt = base_test["metrics"], wsp_test["metrics"], lora_test["metrics"]
+
+    # Read latest WSP params count & spec from edits_log.jsonl if available
+    wsp_params_str = "99,840 (`0.14%`)"
+    log_path = OUT / "edits_log.jsonl"
+    if log_path.exists():
+        lines = [json.loads(ln) for ln in log_path.read_text(encoding="utf-8").splitlines() if ln.strip()]
+        if lines:
+            last = lines[-1]
+            if "params_edited" in last:
+                wsp_params_str = f"{last['params_edited']:,} (`{100*last['params_edited']/72593920:.2f}%`)"
 
     # Win / loss vs Baseline on held-out test (743 clips)
     wsp_win = sum(1 for b, w in zip(base_test["pairs"], wsp_test["pairs"]) if clip_wer(w) < clip_wer(b))
@@ -145,17 +163,17 @@ def main():
         "",
         "| Method | Training Data | Gradient Steps | Params Changed / Added | Dev WER (338) | Dev CER | Dev Loops | Test WER (743) | Test CER | Test Loops | Test Clips Improved / Worse |",
         "| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |",
-        f"| **Untouched Baseline** | None | 0 | 0 (`0.00%`) | `{base_dev['wer']*100:.2f}%` | `{base_dev['cer']*100:.2f}%` | `{base_dev['loops']}` | `{base_test['wer']*100:.2f}%` | `{base_test['cer']*100:.2f}%` | `{base_test['loops']}` | — |",
-        f"| **WSP (`C=0.05, G=0.15, B=0.03`)** | None (0 clips) | 0 | 99,840 (`0.14%`) | `{wsp_dev['wer']*100:.2f}%` | `{wsp_dev['cer']*100:.2f}%` | `{wsp_dev['loops']}` | `{wsp_test['wer']*100:.2f}%` | `{wsp_test['cer']*100:.2f}%` | `{wsp_test['loops']}` | `{wsp_win}` / `{wsp_lose}` |",
-        f"| **LoRA Fine-Tune (Colab T4)** | FLEURS `train` | ~600 steps | {lora_params:,} (`{100*lora_params/72593920:.2f}%`) | `{lora_dev['wer']*100:.2f}%` | `{lora_dev['cer']*100:.2f}%` | `{lora_dev['loops']}` | `{lora_test['wer']*100:.2f}%` | `{lora_test['cer']*100:.2f}%` | `{lora_test['loops']}` | `{lora_win}` / `{lora_lose}` |",
+        f"| **Untouched Baseline** | None | 0 | 0 (`0.00%`) | `{bd['wer']*100:.2f}%` | `{bd['cer']*100:.2f}%` | `{bd['loops']}` | `{bt['wer']*100:.2f}%` | `{bt['cer']*100:.2f}%` | `{bt['loops']}` | — |",
+        f"| **WSP (Training-Free)** | None (0 clips) | 0 | {wsp_params_str} | `{wd['wer']*100:.2f}%` | `{wd['cer']*100:.2f}%` | `{wd['loops']}` | `{wt['wer']*100:.2f}%` | `{wt['cer']*100:.2f}%` | `{wt['loops']}` | `{wsp_win}` / `{wsp_lose}` |",
+        f"| **LoRA Fine-Tune (Colab T4)** | FLEURS `train` | ~600 steps | {lora_params:,} (`{100*lora_params/72593920:.2f}%`) | `{ld['wer']*100:.2f}%` | `{ld['cer']*100:.2f}%` | `{ld['loops']}` | `{lt['wer']*100:.2f}%` | `{lt['cer']*100:.2f}%` | `{lt['loops']}` | `{lora_win}` / `{lora_lose}` |",
         "",
         "## 2. Advantages & Disadvantages",
         "",
         "| Approach | Advantages | Disadvantages |",
         "| :--- | :--- | :--- |",
         "| **Untouched Baseline** | Zero setup; balanced multilingual prior; no collateral regressions on clean words. | ~30.8% Turkish WER; susceptible to repetition loops (`bbbb...`) and weak cross-attention on suffixes. |",
-        "| **Weight-Space Programming (WSP)** | **Zero training data, zero gradients, ~1 second to apply**; eliminates repetition loops (`1 -> 0`) and recovers `-1.99%` dev / `-0.67%` test WER. | Cannot teach new Turkish vocabulary/morphology; head dampening can introduce minor spelling noise on clean or short 1–3s mic clips. |",
-        "| **LoRA Fine-Tuning** | Directly teaches Turkish acoustics, suffixes, and orthography; largest WER/CER reduction; hot-swappable ~4 MB adapter. | Requires ~1.8 GB labeled Turkish audio and GPU training time (~10–15 min on Colab T4); can slightly overfit to the domain of the training dataset. |",
+        f"| **Weight-Space Programming (WSP)** | **Zero training data, zero gradients, ~1 second to apply**; eliminates repetition loops (`{bt['loops']} -> {wt['loops']}`) and recovers `{(bt['wer']-wt['wer'])*100:+.2f}%` test WER. | Cannot teach new Turkish vocabulary/morphology; manual weight scaling has a lower ceiling than gradient training. |",
+        f"| **LoRA Fine-Tuning** | Directly teaches Turkish acoustics, suffixes, and orthography; largest WER reduction (`{bt['wer']*100:.2f}% -> {lt['wer']*100:.2f}%`); hot-swappable ~4 MB adapter. | Requires ~1.8 GB labeled Turkish audio and GPU training time (~10–15 min on Colab T4); can still occasionally loop (`{lt['loops']}` on test). |",
         "",
         "## 3. Side-by-Side Test Transcripts",
         "",

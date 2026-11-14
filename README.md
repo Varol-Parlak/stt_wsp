@@ -1,95 +1,82 @@
-# Weight-Space Programming (WSP) for Turkish Speech-to-Text (`whisper-base`)
+# Turkish STT: Baseline vs. Weight-Space Programming (WSP) vs. LoRA
 
-Direct, training-free, gradient-free **Weight-Space Programming (WSP)** on `openai/whisper-base` (72.6M parameters) to improve **Turkish Speech-to-Text (STT)**—inspired by *"Sparks of Weight-Space Programming"* (Takehi, Teoh, Zhang, Khattab, MIT CSAIL 2026).
-
-Without running a single step of backpropagation, gradient descent, or fine-tuning, we inspect the model's weight matrices and LayerNorm geometry, diagnose its structural failure modes on Turkish speech (autoregressive repetition loops, weak encoder-to-decoder cross-attention gain, English/foreign vocabulary leakage, and agglutinative suffix splitting), and directly edit **0.1375% of the weights (99,840 parameters)**.
-
----
-
-## Results Summary (Google FLEURS Turkish `tr_tr`)
-
-Evaluated in full `float32` (`num_beams=1`, `max_new_tokens=200`) across all **338 validation (`dev`) clips** and **743 held-out `test` clips**:
-
-| Model | Split | Clips | WER ↓ | CER ↓ | Word Loops | Edited Params |
-|---|---|---:|---:|---:|---:|---:|
-| `openai/whisper-base` (Untouched Baseline) | `dev` | 338 | 33.82% | 10.75% | 1 | 0 (0.0000%) |
-| **`whisper-base-tr-wsp` (`C=0.05, G=0.15, B=0.03`)** | **`dev`** | **338** | **31.83%** (**-1.99%**) | **8.31%** (**-2.44% / -22.7% rel.**) | **0** | **99,840 (0.1375%)** |
-| `openai/whisper-base` (Untouched Baseline) | `test` (held-out) | 743 | 30.79% | 8.35% | 0 | 0 (0.0000%) |
-| **`whisper-base-tr-wsp` (`C=0.05, G=0.15, B=0.03`)** | **`test` (held-out)** | **743** | **30.12%** (**-0.67%**) | **7.71%** (**-0.64% / -7.7% rel.**) | **0** | **99,840 (0.1375%)** |
-
-* **58 clips improved** on `dev` and **151 clips improved** on the held-out `test` set.
+A 3-way comparison on **`openai/whisper-base`** (72.6M parameters) for Turkish Speech-to-Text (`google/fleurs` `tr_tr`):
+1. **Untouched Baseline** — `openai/whisper-base` out of the box.
+2. **Weight-Space Programming (WSP)** — training-free, gradient-free surgical weight edits (`0.0628%` of parameters) designed by inspecting attention heads and LayerNorm nullspace geometry.
+3. **LoRA Fine-Tuning** — gradient-based low-rank adaptation trained on FLEURS Turkish `train` on Google Colab (T4 GPU) and hot-swapped locally (`~4.2 MB` adapter).
 
 ---
 
-## Mechanistic Diagnosis & Weight-Space Interventions
+## 3-Way Benchmark Results (`fp32`, `num_beams=1`, Turkish-aware normalizer)
 
-### 1. Acoustic Cross-Attention Gain (`Edit C` — 1,024 parameters, `0.0014%`)
-In `WhisperDecoderLayer`, `encoder_attn_layer_norm` only normalizes the decoder Query $Q$, while the Keys $K$ and Values $V$ in every cross-attention layer come directly from `model.encoder.layer_norm`. Inspecting the weight statistics ([`wsp/inspect_weights.py`](wsp/inspect_weights.py)) revealed that `model.encoder.layer_norm.weight` has mean `+1.351`, whereas `model.decoder.layer_norm.weight` has mean `+9.088`. When the English-dominated decoder language model is uncertain on a Turkish word, autoregressive `self_attn` overpowers acoustic `encoder_attn`, causing hallucinations, early `<|endoftext|>`, or repetition loops.
-* **Intervention**: Scale `model.encoder.layer_norm.weight` and `model.encoder.layer_norm.bias` by $1 + \alpha$ ($\alpha = 0.05$).
+| Method | Training Data | Gradient Steps | Params Changed / Added | Dev WER (338) | Dev CER | Dev Loops | Test WER (743) | Test CER | Test Loops | Test Clips Improved / Worse |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Untouched Baseline** | None | 0 | 0 (`0.00%`) | `33.82%` | `10.75%` | `1` | `30.79%` | `8.35%` | `0` | — |
+| **WSP (`G=0.12, N=1.0, E=1.0`)** | None (`0` clips) | 0 | `45,568` (`0.06%`) | `30.24%` | `8.04%` | `0` | `30.78%` | `8.31%` | `0` | `54` / `51` |
+| **LoRA Fine-Tune (Colab T4)** | FLEURS `train` | ~600 steps | `1,179,648` (`1.62%`) | `28.50%` | `7.25%` | `0` | **`27.42%`** | **`7.34%`** | `1` | **`344` / `225`** |
 
-### 2. Surgical Attention-Head Loop Repair (`Edit G` — 98,304 parameters, `0.1354%`)
-Scanning all 48 causal `self_attn` heads and 48 `encoder_attn` heads across the 6 decoder layers isolated the exact attention heads responsible for repetitive decoding loops:
-* **Repetition / Self-Copy Heads**: `decoder.layers[4].self_attn` **Head 4** and `decoder.layers[5].self_attn` **Head 1** copy the immediately preceding token into the residual stream.
-* **Acoustic Alignment Head**: `decoder.layers[3].encoder_attn` **Head 0** advances the cross-attention alignment pointer along the audio frames.
-* **Intervention**: Dampen `L4.self_attn.H4` and `L5.self_attn.H1` by $1 - \gamma$ and boost `L3.enc_attn.H0` by $1 + \gamma$ ($\gamma = 0.15$) in `out_proj.weight[:, h*64:(h+1)*64]`.
-
-### 3. Contrastive `<|tr|>` Language-Token Steering (`Edit B` — 512 parameters, `0.0007%`)
-In `embed_tokens.weight`, the Turkish conditioning token `<|tr|>` (`id = 50268`) sits inside a dense multilingual cluster (cosine similarity `0.683` with `<|en|>`, `0.848` with `<|az|>`). Because special tokens are suppressed in `proj_out` during generation, editing row `50268` of `embed_tokens.weight` affects **only** the prefix conditioning vector injected at position 1 of the decoder:
-$$E_{\text{tr}} \leftarrow E_{\text{tr}} + \beta \left(E_{\text{tr}} - \mu_{\text{other langs}}\right), \quad \beta = 0.03$$
-
-### 4. Exact LayerNorm-Nullspace Logit Calibration (`Edits A, E, F`)
-Because `proj_out.weight` is tied to `model.decoder.embed_tokens.weight` ($E$), output logits at step $t$ are:
-$$z_{t, v} = (\gamma \odot \text{LN}_0(h_t) + \beta) \cdot E_v$$
-Since $\text{LN}_0(h_t)$ subtracts the mean across the 512 channels, $\sum_{i=1}^{512} \text{LN}_0(h_t)_i \equiv 0$ for **all** $h_t \in \mathbb{R}^{512}$. Consequently, the vector $u = \gamma^{-1} / \|\gamma^{-1}\|_2$ lies in the **exact nullspace** of $\gamma \odot \text{LN}_0(h_t)$ ($\max |(\gamma \odot \text{LN}_0(h_t)) \cdot u| = 4.5 \times 10^{-6}$), while $\beta \cdot u = -3.1194 \neq 0$. Adding $\frac{\delta_v}{\beta \cdot u} u$ to any token row $E_v$ shifts token $v$'s output logit by **exactly $+\delta_v$** without distorting its acoustic/contextual dot product $(\gamma \odot \text{LN}_0(h_t)) \cdot E_v$.
+### How the WSP Edit (`0.0628%`) Works
+- **`Edit G` (`32,768` params):** Scales `L2.encoder_attn.out_proj` head 6 by `-12%` (isolated via 96-head leave-one-out attribution) to stop repetition loops without hurting clean self-attention.
+- **`Edit N` + `Edit E` (`12,800` params):** Shifts 25 specific Turkish number/unit and bound-suffix rows in `embed_tokens.weight` along the exact `decoder.layer_norm` nullspace direction ($u = \gamma^{-1} / \|\gamma^{-1}\|_2$), adjusting token logits cleanly without touching encoder LayerNorm or short-clip silence padding.
 
 ---
 
-## Qualitative Examples (Before vs. After WSP)
+## Advantages & Disadvantages
 
-**1. Curing Word & Character Repetition Loops (`dev` `0171_1582` & `test` `0212_1832`)**
-* **Reference**: `futbol basketbol voleybol sutopu eskrim ragbi bisiklete binme buz hokeyi patenli hokey ve f1 motorlu araç yarışları popüler sporlardandır`
-* **Untouched `whisper-base`**: `fotovasket value bolsutopu xgrim rag mmsk bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb`
-* **WSP (`C=0.05, G=0.15, B=0.03`)**: `football basketball volleyballsutopu x cream ragnb mmsk te bilme buz okeyi batalin okey ve f1 motorlu araç yarışları popüler sporlardandır`
-
-**2. Preventing Premature Hallucinated EOS (`test` `0439_1771`)**
-* **Reference**: `ana sahnelerde müzik bitmiş olsa bile festivalin gece geç saatlere kadar müzik çalmaya devam edecek olan kısımları olabileceğini unutmayın`
-* **Untouched `whisper-base`**: `anlaşılmıyorum`
-* **WSP (`C=0.05, G=0.15, B=0.03`)**: `anasar nelerde müzik bilmiş olsa bile festivalin gece geç saatlere kadar müzik çalmayı devam edecek olan kısımları olabileceğini unutmayın`
-
-**3. Eliminating English Lexical Leakage & Word Splitting (`dev` `0322_1585`, `0334_1528`, `test` `0188_1839`)**
-* **Reference**: `zamanla yeni nüfus yeni çevresine uyum sağlamaya başladıkça diğer popülasyondan gittikçe daha farklı görünmeye başlarlar`
-* **Untouched `whisper-base`**: `zamanla yenilip uymus alamaya başladıkça diğer population ile gidikçe daha farklı görünmeye başlarlar`
-* **WSP (`C=0.05, G=0.15, B=0.03`)**: `zamanla yenilip us yeni çevresine uyum salamaya başladıkça diğer popülasyonla gittikçe daha farklı görünmeye başlarlar`
-* **Reference**: `bazı festivaller küçük çocuklu aileler için özel kamp alanlarına sahiptir`
-* **Untouched `whisper-base`**: `bazı festi varlar küçük çocuklu aileler için özel kam alanlarına sahiptir`
-* **WSP (`C=0.05, G=0.15, B=0.03`)**: `bazı festivaller küçük çocuklu aileler için özel kamp alanlarına sahiptir`
-* **Reference**: `kayak rotasını yürüyüş rotasının bir benzeri olarak düşünün`
-* **Untouched `whisper-base`**: `kayak rotasını yürü iş rotasını bir benzeri olarak düşünün`
-* **WSP (`C=0.05, G=0.15, B=0.03`)**: `kayak rotasını yürüyüş rotasının bir benzeri olarak düşünün`
+- **Untouched Baseline (`openai/whisper-base`)**
+  - **Pros:** Zero setup; balanced multilingual prior; no extra files.
+  - **Cons:** ~30.8% Turkish WER; prone to repetition loops and weak Turkish suffix/number formatting.
+- **Weight-Space Programming (WSP)**
+  - **Pros:** **Zero training data, zero gradients, ~1 second to apply**; eliminates repetition loops (`1 -> 0`) and drops `dev` WER by `-3.58%` (`33.82% -> 30.24%`) with minimal collateral regressions (`54` improved vs `51` worse on `test`).
+  - **Cons:** Cannot teach new Turkish vocabulary or acoustics it never learned; nullspace/head edits mostly generalize to known failure modes (`-0.01%` net on `test`).
+- **LoRA Fine-Tuning (Colab T4)**
+  - **Pros:** Directly learns Turkish acoustics, suffixes, and spelling; biggest real-world gain (`30.79% -> 27.42%` test WER, `344` clips improved); tiny hot-swappable `~4.2 MB` adapter.
+  - **Cons:** Needs ~1.8 GB labeled Turkish audio and GPU training time (~10–15 min on Colab T4); can still occasionally loop (`1` loop on `test`).
 
 ---
 
-## Repository Structure & Usage
+## Side-by-Side Test Examples
 
-* [`wsp/common.py`](wsp/common.py): Model loader, Turkish-aware text normalizer (`I -> ı`, `İ -> i`), memory-mapped feature/encoder caching, and WER/CER/loop evaluator.
-* [`wsp/fetch_fast.py`](wsp/fetch_fast.py): Downloads `openai/whisper-base` and Google FLEURS Turkish (`tr_tr`) `dev` (338 clips) and `test` (743 clips).
-* [`wsp/inspect_weights.py`](wsp/inspect_weights.py) & [`wsp/analyze.py`](wsp/analyze.py): Weight-space statistics, SVD effective rank, language embedding geometry, and error anatomy.
-* [`wsp/edits.py`](wsp/edits.py): Implements all Weight-Space Programming edits (`A`–`G`), dev sweeps, and final model export (`wsp/out/whisper-base-tr-wsp.safetensors`).
-* [`wsp/live_subtitles.py`](wsp/live_subtitles.py): Real-time Turkish microphone subtitle overlay (floating always-on-top desktop subtitle bar + terminal output, with live toggle between `WSP`, `Baseline`, and side-by-side `WSP vs Base` comparison).
-* [`wsp/transcribe_file.py`](wsp/transcribe_file.py): CLI script to transcribe any Turkish audio file with the WSP-edited weights.
-* [`wsp/out/`](wsp/out/): Full JSON evaluation outputs (`baseline_dev.json`, `baseline_test.json`, `wsp_dev.json`, `wsp_test.json`, and `edits_log.jsonl`).
+1. **Rescuing a collapsed baseline (`Clip #443`)**
+   - **Ref:** `latin dil ailesinden bir dil biliyorsanız portekizce öğrenmenin daha kolay olacağını söylemeye bile gerek yok`
+   - **Base (`100.0%` WER):** `4`
+   - **WSP (`40.0%` WER):** `nettin değil ailesinden bir değil biliyorsanız portakizcü öğrenmenin daha kolay olacağını söylemeye bile gerekiyor`
+   - **LoRA (`46.7%` WER):** `latın dill ailesinden bir değil biliyorsunuz portakizcu öğrenmenin daha kolay olacağını söylemeye bile gerekiyor`
 
-### Live Microphone Subtitles
-```bash
-.venv\Scripts\python.exe wsp/live_subtitles.py
+2. **LoRA fixing Turkish morphology & word boundaries (`Clip #98`)**
+   - **Ref:** `bize treni arabayı ve daha birçok ulaşım aracını getirdi`
+   - **Base (`44.4%` WER):** `bizet tireni arabayı ve daha bir çokulaşım aracını getirdi`
+   - **WSP (`44.4%` WER):** `bizet tireni arabayı ve daha bir çokulaşım aracını getirdi`
+   - **LoRA (`0.0%` WER):** `bize treni arabayı ve daha birçok ulaşım aracını getirdi`
+
+3. **LoRA fixing proper nouns & loanwords (`Clip #561`)**
+   - **Ref:** `1960 lar boyunca brzezinski john f kennedy nin danışmanı olarak ve sonra da lyndon b johnson yönetimnde çalıştı`
+   - **Base (`61.1%` WER):** `1960 ler boyunca bir zezinski can f kennedin in danışmanı olarak ve sonra da lyndon bey i can sın yönetiminde çalıştı`
+   - **WSP (`61.1%` WER):** `1960 ler boyunca bir zezinski can f kennedin in danışmanı olarak ve sonra da lyndon bey i can sın yönetiminde çalıştı`
+   - **LoRA (`16.7%` WER):** `1960 lar boyunca bir zezinski john f kennedy nin danışmanı olarak ve sonra da lyndon b johnson yönetiminde çalıştı`
+
+---
+
+## Usage & Reproduction
+
+### 1. Live Microphone Subtitles
+Double-click [`run_subtitles.bat`](run_subtitles.bat) or run:
+```powershell
+.venv\Scripts\python.exe wsp\live_subtitles.py
 ```
 
-### Reproduce
-```bash
+### 2. Transcribe an Audio File (WSP)
+```powershell
+.venv\Scripts\python.exe wsp\transcribe_file.py path\to\audio.wav
+```
+
+### 3. Reproduce WSP & 3-Way Comparison
+```powershell
 cd wsp
-python fetch_fast.py
-python baseline.py
-python edits.py sweep
-python edits.py final C=0.05 G=0.15 B=0.03
-python transcribe_file.py path/to/turkish_audio.wav
+..\.venv\Scripts\python.exe fetch_fast.py
+..\.venv\Scripts\python.exe baseline.py
+..\.venv\Scripts\python.exe edits.py final G=0.12 N=1.0 E=1.0
+cd ..
+.venv\Scripts\python.exe wsp\compare_3way.py --adapter wsp\out\whisper-base-tr-lora.zip
 ```
+*(Train the LoRA adapter for free on Google Colab using [`wsp/colab_lora_train.ipynb`](wsp/colab_lora_train.ipynb).)*

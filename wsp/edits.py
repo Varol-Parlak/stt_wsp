@@ -1,16 +1,23 @@
 """Weight-Space Programming (WSP) interventions for Turkish Whisper (openai/whisper-base).
 
 Each edit is a closed-form, training-free, gradient-free surgical modification to specific weight tensors:
-  - Edit A (512 params):   Turkish lexical prior projected into `decoder.layer_norm.bias` (orthogonal to EOS).
-  - Edit B (512 params):   Contrastive sharpening of the `<|tr|>` language token in `embed_tokens.weight`.
-  - Edit C (1024 params):  Acoustic cross-attention gain via `encoder.layer_norm` (weight & bias) to cure loops.
-  - Edit D (512 params):   Layer-5 cross-attention vs self-attention LayerNorm balance.
-  - Edit E (~35k params):  Nullspace logit calibration along u = 1/gamma for Turkish bound suffixes (fixes word-splitting).
-  - Edit F (~80k params):  Nullspace logit suppression along u = 1/gamma for non-Turkish alphabet tokens (q, w, x, foreign).
+  - Edit A (512 params):    Turkish lexical prior projected into `decoder.layer_norm.bias` (orthogonal to EOS).
+  - Edit B (512 params):    Contrastive sharpening of the `<|tr|>` language token in `embed_tokens.weight`.
+  - Edit C (1024 params):   Encoder `layer_norm` gain (legacy; amplifies 30s silence padding on short clips).
+  - Edit D (262k params):   Decoder Layer-5 cross-attention `out_proj` gain.
+  - Edit E (7,680 params):  Pure Nullspace Suppression along u = 1/gamma for Turkish bound clitics/suffixes & morphology (15 tokens).
+  - Edit F (~80k params):   Nullspace logit suppression along u = 1/gamma for non-Turkish alphabet tokens (q, w, x, foreign).
+  - Edit G (32,768 params): Surgical Cross-Attention Head De-Looping on `L2.enco.H6` (-12%), identified via 96-head leave-one-out attribution.
+  - Edit N (5,120 params):  Pure Nullspace Suppression along u = 1/gamma for spoken Turkish number words & units vs Arabic digits (10 tokens).
+
+Best Surgical WSP Configuration (`G=0.12 N=1.0 E=1.0`, 45,568 params = 0.0628% of model):
+  - Zero encoder LayerNorm scaling (C=0), preserving 100% silence-padding stability on short 1-3s utterances.
+  - Pure nullspace suppression on tied `embed_tokens.weight`: zero effect on clips not emitting target tokens, and suppressed tokens are not fed back into Layer 0.
 
 Usage:
-  python edits.py sweep                 # sweep individual edits & combinations on dev (338 clips)
-  python edits.py final C=0.05 E=0.8    # apply best spec, evaluate on dev + held-out test (743 clips), save weights
+  python edits.py sweep                       # sweep individual edits & combinations on dev (338 clips)
+  python edits.py probe G=0.12 N=1.0 E=1.0    # evaluate specific edit spec on dev
+  python edits.py final G=0.12 N=1.0 E=1.0    # apply best spec, evaluate on dev + held-out test (743 clips), save weights
 """
 import sys
 import json
@@ -36,6 +43,7 @@ TOUCHED_KEYS = [
     "model.decoder.embed_tokens.weight",
     "model.encoder.layer_norm.weight",
     "model.encoder.layer_norm.bias",
+    "model.decoder.layers.2.encoder_attn.out_proj.weight",
     "model.decoder.layers.3.encoder_attn.out_proj.weight",
     "model.decoder.layers.4.self_attn.out_proj.weight",
     "model.decoder.layers.5.encoder_attn.out_proj.weight",
@@ -53,8 +61,10 @@ def restore():
 # ---------------- Helper: LayerNorm exact nullspace direction u = (1 / gamma) ----------------
 # For any hidden state h_t, LayerNorm_0(h_t) has zero mean across the 512 channels, so:
 #   (gamma * LayerNorm_0(h_t)) . (1 / gamma) == sum_i LayerNorm_0(h_t)_i == 0  (identically for all h_t!)
-# Thus shifting a token embedding E_v by (delta / (beta . u)) * u shifts token v's output logit by
-# EXACTLY +delta at every step without perturbing the acoustic/contextual dot product (gamma * h_hat) . E_v.
+# Thus shifting a token embedding E_v by (-delta / (beta . u)) * u shifts token v's output logit by
+# EXACTLY -delta at every step without perturbing the acoustic/contextual dot product (gamma * h_hat) . E_v.
+# By using PURE SUPPRESSION (-delta * step, delta > 0) on over-emitted tokens v, any clip that does not emit v
+# is 100% unaffected, and once v is suppressed below the runner-up token w, v is never emitted into Layer 0.
 def nullspace_unit_vec():
     g = ORIG["model.decoder.layer_norm.weight"].float().cpu()
     b = ORIG["model.decoder.layer_norm.bias"].float().cpu()
@@ -123,7 +133,7 @@ def edit_B(beta: float) -> int:
     return 512
 
 
-# ---------------- Edit C: Encoder LayerNorm gain (1024 params) -> cures repetition loops ----------------
+# ---------------- Edit C: Encoder LayerNorm gain (1024 params) [Legacy] ----------------
 def edit_C(alpha: float) -> int:
     model.model.encoder.layer_norm.weight.data.mul_(1.0 + alpha)
     model.model.encoder.layer_norm.bias.data.mul_(1.0 + alpha)
@@ -137,48 +147,62 @@ def edit_D(alpha: float) -> int:
     return w.numel()
 
 
-# ---------------- Edit E: Nullspace calibration of bound Turkish suffixes (fixes word splitting) ----------------
-BOUND_SUFFIXES = [
-    # Copula / case / plural /derivational suffixes that cannot stand alone as space-prefixed words in Turkish
-    "dır", "dir", "dur", "dür", "tır", "tir", "tur", "tür",
-    "daki", "deki", "taki", "teki", "ndaki", "ndeki",
-    "lar", "ler", "ları", "leri", "ların", "lerin", "lara", "lere", "lardan", "lerden",
-    "dan", "den", "tan", "ten", "ndan", "nden",
-    "nın", "nin", "nun", "nün", "ın", "in", "un", "ün",
-    "lık", "lik", "luk", "lük", "lığı", "liği", "luğu", "lüğü",
-    "mış", "miş", "muş", "müş", "iyor", "ıyor", "uyor", "üyor",
-    "acak", "ecek", "acağı", "eceği", "cık", "cik", "cuk", "cük",
-    "ca", "ce", "ça", "çe", "yla", "yle", "la", "le", "na", "ne",
-    "nda", "nde",
-]
+# ---------------- Edit N: Spoken Turkish Number Words & Units Nullspace Calibration (5,120 params) ----------------
+# Suppresses over-emitted Arabic digit / symbol tokens along u = 1/gamma so spoken Turkish number words
+# (iki, üç, dört, beş, altı, sekiz, on, bin, yüzde, m) win when pronounced in Turkish audio.
+NUMBER_UNIT_SUPPRESS = {
+    568: 1.8,    # ' 2' -> iki
+    805: 2.5,    # ' 3' -> üç
+    1017: 3.5,   # ' 4' -> dört
+    1025: 2.5,   # ' 5' -> beş
+    1386: 2.5,   # ' 6' -> altı / altın
+    1649: 1.5,   # ' 8' -> sekiz
+    1266: 2.0,   # ' 10' -> on
+    9714: 1.2,   # ' 1000' -> bin
+    14189: 1.5,  # ' %' -> yüzde
+    42431: 2.0,  # ' metre' -> m (spelled abbreviation)
+}
 
 
-def _build_suffix_pairs():
-    sp_ids, ns_ids = [], []
-    for sfx in BOUND_SUFFIXES:
-        # Look up exact token IDs for " <sfx>" (spurious space) and "<sfx>" (bound suffix)
-        ids_sp = tok.encode(" " + sfx, add_special_tokens=False)
-        ids_ns = tok.encode(sfx, add_special_tokens=False)
-        if len(ids_sp) == 1:
-            sp_ids.append(ids_sp[0])
-        if len(ids_ns) == 1:
-            ns_ids.append(ids_ns[0])
-    return sorted(set(sp_ids)), sorted(set(ns_ids))
-
-
-def edit_E(delta_logit: float) -> int:
-    if "E" not in _cache:
-        _cache["E"] = _build_suffix_pairs()
-    sp_ids, ns_ids = _cache["E"]
+def edit_N(scale: float) -> int:
     u, bu = nullspace_unit_vec()
     step = (u / bu).to(model.device, model.dtype)
     emb = model.model.decoder.embed_tokens.weight.data
-    # Suppress spurious space-prefixed bound suffix tokens by -delta_logit, boost bound no-space tokens by +0.5*delta_logit
-    for i in sp_ids:
-        emb[i].add_(-delta_logit * step)
-    for i in ns_ids:
-        emb[i].add_(+0.5 * delta_logit * step)
-    return (len(sp_ids) + len(ns_ids)) * 512
+    for tid, delta in NUMBER_UNIT_SUPPRESS.items():
+        emb[tid].add_(-(scale * delta) * step)
+    return len(NUMBER_UNIT_SUPPRESS) * 512
+
+
+# ---------------- Edit E: Turkish Bound Clitics, Suffixes & Morphology Nullspace Calibration (7,680 params) ----------------
+# Pure nullspace suppression along u = 1/gamma for space-prefixed clitics/suffixes that cause spurious word splitting
+# (' ile' -> -yla/-yle, ' ki' -> -ki, ' dir' -> -dir, ' hang' -> herhangi, ' kaç' -> birkaç) and high-frequency
+# Turkish vowel-harmony / morphological suffix confusions.
+MORPH_SUFFIX_SUPPRESS = {
+    15465: 1.5,  # ' ile' -> bound instrumental enclitic -yla/-yle
+    6315: 2.8,   # ' ki' -> bound relativizer suffix -ki (müzedeki, ülkedeki)
+    4746: 2.0,   # ' dir' -> bound copula suffix -dir (vergilendirildi)
+    3967: 1.5,   # ' hang' -> compound herhangi
+    23916: 0.8,  # ' kaç' -> compound birkaç
+    3812: 0.8,   # 'ini' -> accusative/dative -ini vs -ine/-inde
+    374: 1.2,    # 'ur' -> vowel harmony suffix
+    5575: 2.2,   # 'anda' -> locative suffix confusion
+    21006: 0.8,  # 'ının' -> double-genitive haplology -ının -> -ın
+    2790: 1.5,   # 'eral' -> yeral -> yerel vowel harmony
+    34: 1.5,     # 'C' -> mid-word uppercase C
+    4934: 1.0,   # 'üz' -> vowel harmony suffix
+    3004: 2.0,   # 'ged' -> stem confusion
+    22569: 2.0,  # 'ımı' -> possessive suffix harmony
+    38837: 1.6,  # 'brahim' -> İbrani vs İbrahim disambiguation
+}
+
+
+def edit_E(scale: float) -> int:
+    u, bu = nullspace_unit_vec()
+    step = (u / bu).to(model.device, model.dtype)
+    emb = model.model.decoder.embed_tokens.weight.data
+    for tid, delta in MORPH_SUFFIX_SUPPRESS.items():
+        emb[tid].add_(-(scale * delta) * step)
+    return len(MORPH_SUFFIX_SUPPRESS) * 512
 
 
 # ---------------- Edit F: Nullspace suppression of non-Turkish Latin (q, w, x) & foreign tokens ----------------
@@ -206,19 +230,25 @@ def edit_F(delta_logit: float) -> int:
     return len(bad_ids) * 512
 
 
-# ---------------- Edit G: Surgical Attention-Head Loop Repair (L4.self.H4, L5.self.H1, L3.enc.H0) ----------------
+# ---------------- Edit G: Surgical Cross-Attention Head De-Looping on L2.enco.H6 (32,768 params) ----------------
 def edit_G(gamma: float) -> int:
-    # Dampen the two late-layer autoregressive copy heads (L4.self.H4, L5.self.H1) and boost L3.enc.H0 alignment head
-    w4 = model.model.decoder.layers[4].self_attn.out_proj.weight.data
-    w5 = model.model.decoder.layers[5].self_attn.out_proj.weight.data
-    e3 = model.model.decoder.layers[3].encoder_attn.out_proj.weight.data
-    w4[:, 4 * 64:5 * 64].mul_(1.0 - gamma)
-    w5[:, 1 * 64:2 * 64].mul_(1.0 - gamma)
-    e3[:, 0 * 64:1 * 64].mul_(1.0 + gamma)
-    return 3 * 512 * 64
+    # Dampen Decoder Layer 2 Cross-Attention Head 6 (L2.enco.H6), identified via 96-head leave-one-out
+    # logit attribution as the specific head driving repetition loops, with minimal clean-clip perturbation.
+    e2 = model.model.decoder.layers[2].encoder_attn.out_proj.weight.data
+    e2[:, 6 * 64:7 * 64].mul_(1.0 - gamma)
+    return 512 * 64
 
 
-EDITS = {"A": edit_A, "B": edit_B, "C": edit_C, "D": edit_D, "E": edit_E, "F": edit_F, "G": edit_G}
+EDITS = {
+    "A": edit_A,
+    "B": edit_B,
+    "C": edit_C,
+    "D": edit_D,
+    "E": edit_E,
+    "F": edit_F,
+    "G": edit_G,
+    "N": edit_N,
+}
 
 
 def apply_spec(spec: dict) -> int:
@@ -254,21 +284,14 @@ if __name__ == "__main__":
 
         def maybe(spec, tag):
             if tag not in done:
-                run_eval(spec, dev, tag, bf16=True, max_new_tokens=115)
+                run_eval(spec, dev, tag)
 
         maybe({}, "dev/base")
-        for lam in (0.05, 0.08, 0.12, 0.15, 0.2, 0.3):
-            maybe({"A": lam}, f"dev/A={lam}")
-        for beta in (0.05, 0.1, 0.2, 0.35):
-            maybe({"B": beta}, f"dev/B={beta}")
-        for alpha in (0.05, 0.1, 0.2, 0.3):
-            maybe({"C": alpha}, f"dev/C={alpha}")
-        for alpha in (0.1, 0.2, 0.3):
-            maybe({"D": alpha}, f"dev/D={alpha}")
-        for d_e in (0.2, 0.4, 0.8):
-            maybe({"E": d_e}, f"dev/E={d_e}")
-        for d_f in (0.3, 0.7, 1.5):
-            maybe({"F": d_f}, f"dev/F={d_f}")
+        maybe({"G": 0.12}, "dev/G=0.12_L2H6")
+        maybe({"N": 1.0}, "dev/N=1.0_numbers")
+        maybe({"E": 1.0}, "dev/E=1.0_morph")
+        maybe({"N": 1.0, "E": 1.0}, "dev/N=1.0+E=1.0")
+        maybe({"G": 0.12, "N": 1.0, "E": 1.0}, "dev/G=0.12+N=1.0+E=1.0")
     elif mode == "probe":
         spec = {kv.split("=")[0]: float(kv.split("=")[1]) for kv in sys.argv[2:]}
         run_eval(spec, dev, f"dev/{spec}")

@@ -6,7 +6,7 @@ Features:
   + utterance finalization on natural pauses (~0.65s silence).
 - Always-on-top draggable desktop subtitle overlay (`tkinter`) + live terminal output.
 - One-click live toggle between:
-    * WSP Turkish (`C=0.05, G=0.15, B=0.03`)
+    * WSP Turkish (`G=0.12, N=1.0, E=1.0`)
     * Untouched Baseline (`openai/whisper-base`)
     * Side-by-Side Compare (runs both on each spoken utterance so you can see the difference live)
 
@@ -34,38 +34,59 @@ from common import load_model, DEVICE
 
 TOUCHED_KEYS = [
     "model.decoder.embed_tokens.weight",
-    "model.encoder.layer_norm.weight",
-    "model.encoder.layer_norm.bias",
-    "model.decoder.layers.3.encoder_attn.out_proj.weight",
-    "model.decoder.layers.4.self_attn.out_proj.weight",
-    "model.decoder.layers.5.self_attn.out_proj.weight",
+    "model.decoder.layers.2.encoder_attn.out_proj.weight",
 ]
 
+NUMBER_UNIT_SUPPRESS = {
+    568: 1.8,    # ' 2' -> iki
+    805: 2.5,    # ' 3' -> üç
+    1017: 3.5,   # ' 4' -> dört
+    1025: 2.5,   # ' 5' -> beş
+    1386: 2.5,   # ' 6' -> altı / altın
+    1649: 1.5,   # ' 8' -> sekiz
+    1266: 2.0,   # ' 10' -> on
+    9714: 1.2,   # ' 1000' -> bin
+    14189: 1.5,  # ' %' -> yüzde
+    42431: 2.0,  # ' metre' -> m
+}
 
-def apply_wsp_best(model, tok, c_alpha=0.05, g_gamma=0.15, b_beta=0.03):
-    """Apply the best WSP Turkish configuration (C=0.05, G=0.15, B=0.03) in-place."""
-    # Edit C: Encoder final LayerNorm gain (1,024 params)
-    model.model.encoder.layer_norm.weight.data.mul_(1.0 + c_alpha)
-    model.model.encoder.layer_norm.bias.data.mul_(1.0 + c_alpha)
+MORPH_SUFFIX_SUPPRESS = {
+    15465: 1.5,  # ' ile' -> -yla/-yle
+    6315: 2.8,   # ' ki' -> -ki
+    4746: 2.0,   # ' dir' -> -dir
+    3967: 1.5,   # ' hang' -> herhangi
+    23916: 0.8,  # ' kaç' -> birkaç
+    3812: 0.8,   # 'ini' -> -ine/-inde
+    374: 1.2,    # 'ur'
+    5575: 2.2,   # 'anda'
+    21006: 0.8,  # 'ının' -> -ın
+    2790: 1.5,   # 'eral' -> yerel
+    34: 1.5,     # 'C'
+    4934: 1.0,   # 'üz'
+    3004: 2.0,   # 'ged'
+    22569: 2.0,  # 'ımı'
+    38837: 1.6,  # 'brahim' -> İbrani
+}
 
-    # Edit G: Dampen causal copy heads (L4.self.H4, L5.self.H1) & boost L3.enc.H0 alignment head (98,304 params)
-    w4 = model.model.decoder.layers[4].self_attn.out_proj.weight.data
-    w5 = model.model.decoder.layers[5].self_attn.out_proj.weight.data
-    e3 = model.model.decoder.layers[3].encoder_attn.out_proj.weight.data
-    w4[:, 4 * 64:5 * 64].mul_(1.0 - g_gamma)
-    w5[:, 1 * 64:2 * 64].mul_(1.0 - g_gamma)
-    e3[:, 0 * 64:1 * 64].mul_(1.0 + g_gamma)
 
-    # Edit B: Contrastive sharpening of <|tr|> language token embedding (512 params)
-    vocab = tok.get_vocab()
-    tr_id = vocab["<|tr|>"]
-    other_ids = [
-        i for k, i in vocab.items()
-        if k.startswith("<|") and k.endswith("|>") and len(k) in (6, 7) and k[2:-2].isalpha() and i != tr_id
-    ]
+def apply_wsp_best(model, tok, g_gamma=0.12, n_scale=1.0, e_scale=1.0):
+    """Apply the surgical WSP Turkish configuration (G=0.12, N=1.0, E=1.0; 45,568 params) in-place."""
+    # Edit G: Dampen Decoder Layer 2 Cross-Attention Head 6 (L2.enco.H6) by -12% (32,768 params)
+    e2 = model.model.decoder.layers[2].encoder_attn.out_proj.weight.data
+    e2[:, 6 * 64:7 * 64].mul_(1.0 - g_gamma)
+
+    # Edits N & E: Pure Nullspace Suppression along u = 1 / gamma in embed_tokens.weight (12,800 params)
+    g = model.model.decoder.layer_norm.weight.detach().float().cpu()
+    b = model.model.decoder.layer_norm.bias.detach().float().cpu()
+    u = 1.0 / g
+    u = u / u.norm()
+    bu = float(b @ u)
+    step = (u / bu).to(model.device, model.dtype)
     emb = model.model.decoder.embed_tokens.weight.data
-    mu = emb[other_ids].mean(0)
-    emb[tr_id].add_(b_beta * (emb[tr_id] - mu))
+    for tid, delta in NUMBER_UNIT_SUPPRESS.items():
+        emb[tid].add_(-(n_scale * delta) * step)
+    for tid, delta in MORPH_SUFFIX_SUPPRESS.items():
+        emb[tid].add_(-(e_scale * delta) * step)
 
 SAMPLE_RATE = 16000
 BLOCK_SEC = 0.10          # 100 ms audio callback blocks
@@ -378,7 +399,7 @@ def run_gui(transcriber: LiveTranscriber):
         nxt = modes[(modes.index(transcriber.mode) + 1) % len(modes)]
         transcriber.set_mode(nxt)
         if nxt == "WSP":
-            mode_btn.config(text="Mod: WSP (C+G+B)", bg="#065f46", fg="#ecfdf5")
+            mode_btn.config(text="Mod: WSP (G+N+E)", bg="#065f46", fg="#ecfdf5")
         elif nxt == "BASELINE":
             mode_btn.config(text="Mod: Baseline", bg="#1e3a8a", fg="#eff6ff")
         else:
@@ -386,7 +407,7 @@ def run_gui(transcriber: LiveTranscriber):
 
     mode_btn = tk.Button(
         top_bar,
-        text="Mod: WSP (C+G+B)",
+        text="Mod: WSP (G+N+E)",
         command=cycle_mode,
         bg="#065f46",
         fg="#ecfdf5",

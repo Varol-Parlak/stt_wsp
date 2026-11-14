@@ -1,64 +1,64 @@
 {
  "metrics": {
-  "tag": "final/dev {'C': 0.05, 'G': 0.15, 'B': 0.03}",
+  "tag": "final/dev {'G': 0.12, 'N': 1.0, 'E': 1.0}",
   "n": 338,
-  "wer": 0.31830381105743427,
-  "cer": 0.083133649567216,
+  "wer": 0.3023796743603507,
+  "cer": 0.0803951293461783,
   "loops": 0,
   "empty": 0,
-  "tr_char_ratio": 0.9916080129940444,
-  "len_ratio": 0.9959166707418455
+  "tr_char_ratio": 1.0086626962642122,
+  "len_ratio": 0.996185632549269
  },
  "pairs": [
   {
    "id": "0000_1522",
    "ref": "teknoloji çözümü sanal bir tur sunarak getirir öğrenciler müzedeki yapıları inceleyebilir bir akvaryumu ziyaret edebilir veya sınıfta otururken güzel sanat eserlerinin büyüsüne kapılabilir",
-   "hyp": "tekno veci çözümü sanal bir tur sunarak getirir öğrenciler müzede ki yapıları inceleyebilir birak varlığımızı yaratıda bilir veyasınıfta otururken güzel sanat eserlerinin büyüsüne kapılabilir"
+   "hyp": "tekno veci çözümü sanal bir tur sunarak getirir öğrenciler müzedeki yapıları inceleyebilir birak varlığımızı yaratıda bilir ve ya asınıfta otururken güzel zaman tesadelerinin büyüsüne kapılabilir"
   },
   {
    "id": "0001_1634",
    "ref": "japonlar en büyüğü honshu olan 7 000 civarında adaya sahiptir ki bu durum japonya yı yeryüzünün en büyük 7 adası yapıyor",
-   "hyp": "japonlar en büyüğü honşa olan 7 000 civarında adaya sahiptir ki budurum japon yayı yeryüzünün en büyük 7 adası yapıyor"
+   "hyp": "japonlar en büyüğü honşa olan 7 000 civarında adaya sahiptir kibudurum japon yayı yeryüzünün en büyük 7 adası yapıyor"
   },
   {
    "id": "0002_1578",
    "ref": "sonra lakkha singh bhajans ın söylenmesinde liderliği ele aldı",
-   "hyp": "sonra laka sing bajansın söylenmesini liderli ele aldı"
+   "hyp": "sonra laka sing bajansın söylenmesinde liderli ele aldı"
   },
   {
    "id": "0003_1589",
    "ref": "bir alt kültürü ayrı olarak belirleyen nitelikler dilsel estetik dini politik cinsel coğrafi veya çeşitli faktörlerin bir kombinasyonu olabilir",
-   "hyp": "bir alt kulturu ayrı olurak belirleyen nitelikler dilsel estetic diğini politik cinsel coğrafi veya çeşitli faktörlerin bir kombinasyona olabilir"
+   "hyp": "bir alt kulturu ayrı olurak belirleyen nitelikler dilsel estetik dini politik cinsel coğrafi veya çeşitli faktörlerin bir kombinasyona olabilir"
   },
   {
    "id": "0004_1613",
    "ref": "bazı eyerler özellikle de ingiliz eyerleri düşmekte olan bir binicinin geriye çekmesiyle üzengi derisinin eyerden düşmesine izin veren güvenlik çubukları bulunur",
-   "hyp": "bazı eğerler özellikle de ingiliz eğerleri düşmekte olan bir binicinin geriye çekmesiyle üzerngi derisinin eğerden düşmesini izin veren güvenlik çubukları bulunur"
+   "hyp": "bazı eğerler özellikle de ingiliz eğerleri düşmekte olan bir binicinin geriye çekmesiyle üzeringi derisinin eğerden düşmesini izin veren güvenlik çubukları bulunur"
   },
   {
    "id": "0005_1609",
    "ref": "11 dörtlük ve 2 altılık vurarak sadece 41 topta 70 run ile robin uthappa atışta en yüksek skoru elde etmiştir",
-   "hyp": "11 4 ve 2 6lip olarak sadece 41 70 ron ile robin ut hava atışta en yüksek skoro elde etmiştir"
+   "hyp": "11 4 ve 2 6lip olarak sadece 41 70 robin ut hapa atışta en yüksek skoro elde etmiştir"
   },
   {
    "id": "0006_1590",
    "ref": "başlıca yerel birası number one dır çok karmaşık bir bira olmasa da hoş ve ferahlatıcıdır diğer yerel birasının adı da manta dır",
-   "hyp": "başlayacağız yerel birası namburbandır çok karmaşıp bir bira olmasa da hoş ve felatatıcıdır diğer yerel birasının adı da mantadır"
+   "hyp": "başlayacağız yerel birası nambur vandır çok karmaşıp bir bira olmasa da hoş ve felatatıcıdır diğer yerel birasının adı da mantıdır"
   },
   {
    "id": "0007_1640",
    "ref": "buzlanmış ve karlı yollarda sürtünme oldukça düşüktür ve kuru asfalt üzerindeymiş gibi araç sürmeniz mümkün değildir",
-   "hyp": "buzlanmış ve karlı yollarda sultumdan oldukça düşüptür ve kuru asfalt üzerindeymiş gibi araç sürmeniz mümkün değildir"
+   "hyp": "buzlanmış ve karlı yollarda sürdümden oldukça düşüptür ve kuru asfalt üzerinde emiş gibi araç sürmeniz mümkün değildir"
   },
   {
    "id": "0008_1608",
    "ref": "kız kardeşimi ve arkadaşını kaybettim yolda insanların üzerlerinden atlayıp itip kaktığı tekerlekli sandalyeli iki engelli vardı dedi armand versace",
-   "hyp": "kırz kardeşimi ve arkadaşını kaybettim yolda insanlarının üzerinden atlayıp itip kalktığı tekerlekli sandalilyeli iken geldi vardı dedi arman tver sadece"
+   "hyp": "kırz kardeşimi ve arkadaşını kaybettim yolda insanlarının üzerinden atlayıp itip kalktığı tekerlekli sandalili iken geldi vardı"
   },
   {
    "id": "0009_1590",
    "ref": "başlıca yerel birası number one dır çok karmaşık bir bira olmasa da hoş ve ferahlatıcıdır diğer yerel birasının adı da manta dır",
-   "hyp": "başlayacağı yeral bina birası nambur vandır çok karmaşık bir bira olmasa da hoş ve ferahlatıcı der diğer yeral bira sının adı da mantadır"
+   "hyp": "başlayacağı yeral vina birası number one dır çok karmaşık bir bira olmasa da hoş ve ferahlatıcı der diğer yeral bira sınındı da mantadır"
   },
   {
    "id": "0010_1647",
@@ -68,7 +68,7 @@
   {
    "id": "0011_1639",
    "ref": "en eleştirel kitle genelde öğrenciler olduğundan blog yazarları eleştiriden kaçınmak için yazısını geliştirmeye çalışır",
-   "hyp": "en eleştiriler kilit de genelde öğrenciler olduğundan block yazarları eleştirinden kaçırmak için yazısını geliştirmeye çalışır"
+   "hyp": "en eleştiriler kilitli genelde öğrenciler olduğundan block yazarları eleştirinden kaçırmak için yazısını geliştirmeye çalışır"
   },
   {
    "id": "0012_1659",
@@ -83,17 +83,17 @@
   {
    "id": "0014_1566",
    "ref": "ürünlerimizin yüzde seksenlik bir bölümü orta amerika ülkelerindeki oranlar üzerinden vergilendirildi",
-   "hyp": "ürünlerimizin 80 lik bir bölümü orta amerika ülkelerindeki oranlar üzerinden vergilen dirildi"
+   "hyp": "ürünlerimizin yüzde seksanlık bir bölümü orta amerika ülkelerindeki oranlar üzerinden vergilendirildi"
   },
   {
    "id": "0015_1511",
    "ref": "kısa süre sonra çevik kuvvet ekipmanları giyen görevliler avluya girdi ve hükümlüleri biber gazıyla etkisiz hale getirdi",
-   "hyp": "kısasür ve sonra çevik kuvvet ekipmanları giyen göreviler almaya girdi ve hükümnüleri bir belgazıyla etkisiz hale getirdi"
+   "hyp": "kısasür ve sonra çevik kuvvet ekipmanları giyen göreviler almaya girdi ve hükümlülere bir belgazıyla etkisiz hale getirdi"
   },
   {
    "id": "0016_1535",
    "ref": "hava trafik kontrolcülerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer radarı tabanlı teknolojinin aksine uydu tabanlı teknolojiyi kullanır",
-   "hyp": "hava trafik kontrolcülerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer radarı tabanlı teknolojiye kullanır"
+   "hyp": "hava trafik kontrolcülerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer radarı tabanlı teknolojiye uydur"
   },
   {
    "id": "0017_1602",
@@ -103,22 +103,22 @@
   {
    "id": "0018_1619",
    "ref": "ancak işaretlerin çoğu yasalara göre ilk resmi dil olarak belirlendiği için yalnızca katalancadır",
-   "hyp": "ancak işaretlerin çoğu yasalara göre ilk resmiye dild olarak belirlendiği için yalnızca katalancalır"
+   "hyp": "ancak işaretlerin çoğu yasalara göre ilk resmi dil olarak belirlendiği için yalnızca katalancalır"
   },
   {
    "id": "0019_1631",
    "ref": "yeni krallıktaki antik mısırlılar seleflerinin bıraktıkları anıtlara hayret içerisinde bakarlardı ve bu anıtlar o zamanlar bin yıldan daha eskiydi",
-   "hyp": "yeni krallıktaki antik misırılar seleflerinin bıraktıkları anıtlara hayret içerisinde bakarlardı ve bu anıtlar o zamanlar bin yıldan daha eskiydi"
+   "hyp": "yeni krallıktaki antik misırlar seleflerinin bıraktıkları anıtlara hayret içerisinde bakarlardı ve bu anıtlar o zamanlar bin yıldan daha eskiydi"
   },
   {
    "id": "0020_1595",
    "ref": "tibet budizmi buda nın öğretilerine dayanan ancak mahayana sevgi yolu ile ve hint yogasından alınan birçok teknikle genişletilen bir öğretidir",
-   "hyp": "tibet budizmi bu dağının öğretilerini dayanan ancak mahayana sevgi olayıyla ve hint yokasından alanan birçok teknik ve geliştettiler bir öretidir"
+   "hyp": "çibet budizmi bu dağının öğretilerine dayanan ancak muayana sevgi olayıyla ve hint yokasından alanan birçok teknik ve geliştettiler bir öretidir"
   },
   {
    "id": "0021_1634",
    "ref": "japonlar en büyüğü honshu olan 7 000 civarında adaya sahiptir ki bu durum japonya yı yeryüzünün en büyük 7 adası yapıyor",
-   "hyp": "japonlar en büyük homu şu olan 7 000 civarında adaya sayıktir ki bu durum japon yayı yer yüzünün en büyük 7 adası yapıyor"
+   "hyp": "japonlar en büyük homoşu olan 7 000 civarında adaya sayıktir ki bu durum japon yayı yer yüzünün en büyük 7 adası yapıyor"
   },
   {
    "id": "0022_1542",
@@ -128,12 +128,12 @@
   {
    "id": "0023_1585",
    "ref": "zamanla yeni nüfus yeni çevresine uyum sağlamaya başladıkça diğer popülasyondan gittikçe daha farklı görünmeye başlarlar",
-   "hyp": "zamanla yeni nüfus yeni çevresini uyum sağlamaya başladıkça diğer popilasyondan gittikçe daha farklı görünmeye başlarlar"
+   "hyp": "zamanla yeni nüfus yeni çevresine uyum sağlamaya başladıkça diğer popilasyondan gittikçe daha farklı görünmeye başlarlar"
   },
   {
    "id": "0024_1593",
    "ref": "sonuç olarak ağaçtan yapılmış tekerleklerin yerini demir tekerlekler aldı 1767 de tamamen demirden yapılma ilk raylar kullanıma sokuldu",
-   "hyp": "sonuç olarak ağaçtan yapılmış tekerliklerin yerini demir tekerlikleri aldı 1760 e de tamamen demirden yapıma ikri ile kullanıma sokuldu"
+   "hyp": "sonuç olarak ağaçtan yapılmış tekerliklerin yerine demir tekerlikleri aldı 1760 e de tamamen demirden yapıma ikri aylar kullanıma sokuldu"
   },
   {
    "id": "0025_1549",
@@ -143,12 +143,12 @@
   {
    "id": "0026_1636",
    "ref": "ispanyollar üç asır süren kolonileşme dönemini başlattı",
-   "hyp": "ispanyollar 3 asır süren konunun leşme dönemini başlattı"
+   "hyp": "ispanyolar üç asır süren konunun leşme dönemini başlattı"
   },
   {
    "id": "0027_1519",
    "ref": "çoğunlukla boş yıl için yurt dışında bir kursa kayıt yaptırmak aslında kendi ülkenizde yüksek öğrenime geri dönme şansınızı artırabilir",
-   "hyp": "çoğunlukla boş yıl için yurt dışında bir kursa kayet yaptırmak aslında kendi ülkenizde yüksek öğreneme geri dönme şansınızı artırabilir"
+   "hyp": "çoğunlukla boş yıl için yurt dışında bir kursa kayıt yaptırmak aslında kendi ülkenizde yüksek öğreneme geri dönme şansınızı artırabilir"
   },
   {
    "id": "0028_1553",
@@ -163,7 +163,7 @@
   {
    "id": "0030_1655",
    "ref": "mesela öğrenme ve sosyalleşme internet kullanımı için önemli motivasyonlar olarak tavsiye edilmektedir james ve diğerleri 1995",
-   "hyp": "mesela öğrenme ve sosyalleşme internet kullanılmığı için önemli mutfaslı mutluğunlar olarak tavsiye edilmeyiklidir james sve diyelleri 1995"
+   "hyp": "mesela öğrenme ve socialism internet kullanılmığı için önemli mutfaslı mutluğunlar olarak tavsiye edilmeyiklidir james sve diyelleri 1995"
   },
   {
    "id": "0031_1585",
@@ -173,22 +173,22 @@
   {
    "id": "0032_1617",
    "ref": "kruger ulusal parkı knp güney afrika nın kuzey doğusunda yer alır ve doğuda mozambik kuzeyde zimbabve sınırı boyunca uzanır ve güney sınırı timsah nehri nden oluşur",
-   "hyp": "kuru gel ulusar parkı knp güne yaptıklarının kuzayı doğusunda yarılır ve doğuda mozan bir kuzayı da zimba ve sınırı boyunca uzanır ve güney sınırı timsah nerinden oluşur"
+   "hyp": "kurugel ulusar parkı knp güney aptikanın kuzey doğusunda yarılır ve doğuda mozan bik kuzey de zimbav ve sınırı boyunca uzanır ve güney sınırı timzah nelerinden oluşur"
   },
   {
    "id": "0033_1601",
    "ref": "bilim insanları ocelotların diğer hayvanları yerin neresinde olduklarını sezerek koklayarak yemek avlamak için takip ettiklerini ve bulduklarını düşünüyor",
-   "hyp": "bilim insanları oselotların diğer hayvanları yerin neresinde olduklarını sezer et koklayarak yemek avlamak için takip ettiklerini ve bulduklarını düşünüyor"
+   "hyp": "bilim insanları o siletların diğer hayvanları yerin neresinde olduklarını sezer et koklayarak yemek avlamak için takip ettiklerini ve bulduklarını düşünüyor"
   },
   {
    "id": "0034_1598",
    "ref": "araba çarptığında evde üç kişi vardı ancak hiçbiri zarar görmedi",
-   "hyp": "araba çarptığında evde 3 kişi vardı ancak hiç bir rizalar ar görmeni"
+   "hyp": "araba çarptığında evde üç kişi vardı ancak hiç bir rızalar görmeni"
   },
   {
    "id": "0035_1572",
    "ref": "hükumet binalarının çevresinde üç bomba daha iki saat içerisinde patladı",
-   "hyp": "3 bomba daha 2 saat içerisinde patladı"
+   "hyp": "hükümet binalarının çevresinde 3 bomba daha iki saat içerisinde patladı"
   },
   {
    "id": "0036_1530",
@@ -198,17 +198,17 @@
   {
    "id": "0037_1584",
    "ref": "bişkek sokaklarında güvenlik güçleri bulunmadığı için geniş çaplı yağmanın gece boyunca devam ettiği bildirildi",
-   "hyp": "bir skek sokaklarında güvenlik güçleri bulunmadığı için geniş çatlı yağmanın gece boyunca devam ettiği bildirildi"
+   "hyp": "bir skek sokaklarında güvenlik güçleri bulummadığı için geniş çatlı yağmanın gece boyunca devam ettiği bildirildi"
   },
   {
    "id": "0038_1644",
    "ref": "yorumu sorulduğunda miller mike duruşma sırasında çok konuşuyor ben hazırlanıyordum o yüzden ne dediğini tam olarak duyamadım dedi",
-   "hyp": "yorumu sorulduğunda miller mike duruşma sırasında çok konuşuyor ben hazırlanıyordum o yüzden ne dediğini tan olarak duyamadım dedi"
+   "hyp": "yorumu sorulduğunda miller mike duruşma sırasında çok konuşuyor ben hazırlanıyordum o yüzden ne dediğini tanıdılarak duyamadım"
   },
   {
    "id": "0039_1626",
    "ref": "olimpiyat altın madalya sahibinin 100m ve 200m serbest stil ve ingiliz milletler topluluğu oyunlarında üç bayrak yarışında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüphe altında",
-   "hyp": "olimpiyat 6 madalya sahibinin 100 metre ve 200 metre serbest sitil ve ingiliz milletler topluluğu oyunlarında 3 bayrak yarısında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüphe altında"
+   "hyp": "olimpiyat altın madalya sahibinin 100 m ve 200 m serbest sitil ve ingiliz milletler topluluğu oyunlarında üç bayrak yarısında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüphe altında"
   },
   {
    "id": "0040_1528",
@@ -218,27 +218,27 @@
   {
    "id": "0041_1554",
    "ref": "wifi ile çalışan bir kapı zili yaptığını söyledi",
-   "hyp": "wi fi ile çalışan bir kapı zili yaptığını söyledi"
+   "hyp": "bıfa ile çalışan bir kapı zili yaptığını söyledi"
   },
   {
    "id": "0042_1511",
    "ref": "kısa süre sonra çevik kuvvet ekipmanları giyen görevliler avluya girdi ve hükümlüleri biber gazıyla etkisiz hale getirdi",
-   "hyp": "kısa süre sonra çevik kuvvet ekipmanla bir giyen göreviler avlaya girdi ve hükümlileri bir dergazıyla etkisiz hale getirdi"
+   "hyp": "kısa süre sonra çevik kuvvet ekipmanları giyen göreviler avlaya girdi ve hükümlileri bir dergazıyla etkisiz hale getirdi"
   },
   {
    "id": "0043_1535",
    "ref": "hava trafik kontrolcülerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer radarı tabanlı teknolojinin aksine uydu tabanlı teknolojiyi kullanır",
-   "hyp": "hava trafik kontrolcilerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer rada dair tabanın teknolojinin aksine uydu tabanlı teknolojiyi kullanır"
+   "hyp": "hava trafik kontrolcülerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer rada dair tabanlı teknoloji nin haksine uydu tabanlı teknolojiyi kullanır"
   },
   {
    "id": "0044_1536",
    "ref": "yerel merciler tesisin etrafında oturanları kapalı mekanlarda durmaları klimaları kapamaları ve çeşme suyu içmemeleri konusunda ikaz ediyor",
-   "hyp": "yeral merciler tesisinin etrafında oturanları kapalı mekanlarda durmaları klimaları kapamaları ve çeşme suyu içmemeleri konusunda yıkaz ediyor"
+   "hyp": "yerel merciler tesisinin etrafında oturanları kapalı mekanlarda durmaları klimaları kapamaları ve çeşme suyu içmemeleri konusunda ikaz ediyor"
   },
   {
    "id": "0045_1593",
    "ref": "sonuç olarak ağaçtan yapılmış tekerleklerin yerini demir tekerlekler aldı 1767 de tamamen demirden yapılma ilk raylar kullanıma sokuldu",
-   "hyp": "sonuç olarak ağaçtan yapılmış tekerliklerin yerini demir tekerlikler aldı 1767 de tamamen demirden yapılma iyi kraliler kuduruma sokuldu"
+   "hyp": "sonuç olarak ağaçtan yapılmış tekerliklerin yerini demir tekerlikler aldı 1767 de tamamen demirden yapılma iyi kraliler kudunuma sokuldu"
   },
   {
    "id": "0046_1538",
@@ -253,37 +253,37 @@
   {
    "id": "0048_1566",
    "ref": "ürünlerimizin yüzde seksenlik bir bölümü orta amerika ülkelerindeki oranlar üzerinden vergilendirildi",
-   "hyp": "yolunlarımızın 80 lik bir bölümü orta amerika ülkelerindeki oranla üzerinden vergilendirildi"
+   "hyp": "yolunlarımızın yüzde seksanlık bir bölümü orta amerika ülkelerindeki oranla üzerinden vergilendirildi"
   },
   {
    "id": "0049_1641",
    "ref": "fakat ormanlar sadece mangrov bataklıkları değildir ganj ovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarını da içerirler",
-   "hyp": "fakat ormanlar sadece bank robota taktıkları değildir ganshovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarını da içirirler"
+   "hyp": "fakat ormanlar sadece bank robotaklıkları değildir gansiovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarını da içirirler"
   },
   {
    "id": "0050_1655",
    "ref": "mesela öğrenme ve sosyalleşme internet kullanımı için önemli motivasyonlar olarak tavsiye edilmektedir james ve diğerleri 1995",
-   "hyp": "mesela öğrenme ve sosyalleşme internet kullanılım için önemli motivasyonlar olarak talsiye edirmektedir james f diğerleri 1995"
+   "hyp": "mesela öğrenme ve sosyalleşme internet kullanılım için önemli motivasyonlar olarak talsiye edilmektedir james f diğerleri 1995"
   },
   {
    "id": "0051_1606",
    "ref": "portekizliler onu yıktılar ve casa branca adıyla yeniden inşa ettiler ancak 1755 teki bir depremden sonra onu terk ettiler",
-   "hyp": "portekizler onu yıktılar ve kasabran kaldı ile yeniden inşa ettiler ancak 1725 teki bir depremden sonra onu terk ettiler"
+   "hyp": "portekizler onu yıktılar ve kasabran kaldıyle yeniden inşa ettiler ancak 1725 teki bir depremden sonra onu terk ettiler"
   },
   {
    "id": "0052_1640",
    "ref": "buzlanmış ve karlı yollarda sürtünme oldukça düşüktür ve kuru asfalt üzerindeymiş gibi araç sürmeniz mümkün değildir",
-   "hyp": "buzlanmış ve karbi olarak sürdünme oldukça da şükür ve kuru asval üzerindeymiş gibi araç türmeniz mümkün değildir"
+   "hyp": "buzlanmış ve karbiyolarda sürdünme oldukça daşıktır ve kuru asval üzerindeymiş gibi araç türmeniz mümkün değildir"
   },
   {
    "id": "0053_1649",
    "ref": "japonya da ilk kiraz çiçeği partileri imparator tarafından düzenleniyor ve yalnızca kendisi ve imparatorluk mahkemesi çevresindeki diğer aristokrasi üyeleri katılabiliyordu",
-   "hyp": "japon yada ilk keras çiçeği partileri imparator tarafından düzenleniyor veyanınızı kendisi ve imparatorluk mahkemesi çevresindeki diğer aristokrasi üyeleri katılabiliyordu"
+   "hyp": "japon yada ilk keras çiçeği partileri imparator tarafından düzenleniyor ve yanınızı kendisi ve imparatorluk mahkemesi çevresindeki diğer aristokrasi üyeleri katılabiliyordu"
   },
   {
    "id": "0054_1563",
    "ref": "bunun genç bir dinozorun kuyruğu olmasına rağmen araştırmacılar örneğin bir civciv tüyünü değil yetişkin tüylerini işaret ettiğini iddia etti",
-   "hyp": "bunun genç bir dino zorun kuyruğu olmasına rağmen araştırmacılar örneğin bir cv tüyn değil yetişkin tüylüğünü şart ettiğini iddia etti"
+   "hyp": "bunun genç bir dinozorum kuyruğu olmasına rağmen araştırmacılar örneğin bir cv tüynü değil yetişkin tüylüleri nişart ettiğini iddia etti"
   },
   {
    "id": "0055_1593",
@@ -293,12 +293,12 @@
   {
    "id": "0056_1525",
    "ref": "18 yüzyıl pazarı tarihi camiler ve kiliseler ile şehir geleneksel türkiye den daha çok akdeniz avrupası havasına sahip olmasına rağmen geniş bulvarlar cam binalar ve modern alışveriş merkezleri geleneksel kırmızı kiremitli çatılarla çevrilidir",
-   "hyp": "18 yüzyıl pazarı tarihi camiler ve kiliseler ile şehir geleneksel türkiye den daha çok aktiğiniz avrupa sahabasına sahip olmasına rağmen geniş bulbarlar cam binalar ve modern alışveriş merkezleri geleneksel kırmızı keremitli çatılarla çevrilildir"
+   "hyp": "18 yüzyıl pazarı tarihi camiler ve kiliseler ile şehir geleneksel türkiye den daha çok aklınız avrupa sahabasına sahip olmasına rağmen geniş bulbarlar cam binalar ve modern alışveriş merkezleri geleneksel kırmızı keremitli çatılarla çevrilildir"
   },
   {
    "id": "0057_1541",
    "ref": "kurye şirketlerine eşyaları kısa zamanda ulaştırmaları için büyük ödemeler yapılır genellikle ticari dökümanların malların ya da acil bir onarım için yedek parçaların ulaştırılmasında zaman çok önemlidir",
-   "hyp": "kurye şirketlerine eşyaları kısa zamanda ulaştırmaları için büyük ödemeler yapılır genellikle ticari dokunanların malların ya da acil bir onarım için yedek parçalarının ulaştırılılmasında zaman çok önemlidir"
+   "hyp": "kurye şirketlerine eşyaları kısa zamanda ulaştırmaları için büyük ödemeler yapılır genellikle ticari dokunanların malların ya da acil bir onarım için yedek parçaların ulaştırılmasında zaman çok önemlidir"
   },
   {
    "id": "0058_1648",
@@ -313,27 +313,27 @@
   {
    "id": "0060_1639",
    "ref": "en eleştirel kitle genelde öğrenciler olduğundan blog yazarları eleştiriden kaçınmak için yazısını geliştirmeye çalışır",
-   "hyp": "an eleştiral kitle genelde öğrenciler olduğundan bu lok yazarları eleştiriden karşılığına geçin yazısını geliştirmeye çalışır"
+   "hyp": "an eleştiral kitle genelde öğrenciler olduğundan bu lok yazarları eleştiriden karşılığına geçirmeye çalışır"
   },
   {
    "id": "0061_1566",
    "ref": "ürünlerimizin yüzde seksenlik bir bölümü orta amerika ülkelerindeki oranlar üzerinden vergilendirildi",
-   "hyp": "ürünlerimizin 180 lik bir bölümü orta amerika ülkelerindeki oranlar üzerinden vergiden derildi"
+   "hyp": "ürünlerimizin 181 bölümü orta amerika ülkelerindeki oranlar üzerinden vergiden derildi"
   },
   {
    "id": "0062_1654",
    "ref": "farkında mısın bilmiyorum ama orta amerika dan gelen ürünlerin çoğu bu ülkeye gümrüksüz geldi",
-   "hyp": "varkında mısın bilmiyorum ama orta amerika dan gelen ürünlerin çoğu bu ülkeye gümrüküz geldi"
+   "hyp": "varkında mısın bilmiyorum ama orta amerika dan gelen ürünlerin çoğu bu ülkeye gümrük süz geldi"
   },
   {
    "id": "0063_1616",
    "ref": "bilim bu devasa karbon ekonomisinin son iki milyon yıldır insan evrimini destekleyen istikrarlı biyosfer durumunu bozduğunu gösteriyor",
-   "hyp": "bilim bu devasa karma ekonomisinin son 2 milyon yıldır insan evrimini desekleyen istikarla bir özver durumunu bozuğunu gösteriyor"
+   "hyp": "bilim bu devasa karma ekonomisinin son iki milyon yıldır insan evrimini desekleyen istikarla bir özver durumunu bozuğunu gösteriyor"
   },
   {
    "id": "0064_1568",
    "ref": "özellikle romani olmayanlar arasında yaygın biçimde kullanılsa da çingene kelimesi romani halkına dair olumsuz kalıpyargılar ve doğru olmayan algılarla ilişkilendirilmiş olması nedeniyle genellikle saldırgan olarak kabul edilir",
-   "hyp": "özellikle romani olmayanlar arasında yaygın bir kimle kullanılsa da kingenek elinesi romani halkına dair olumsuz kalıp yargılar ve doğru olmayan algılarla ilişkilendirilmiş olmasa nedeniyle genellikle saldırgan olarak kabul edilir"
+   "hyp": "özellikle romani olmayanlar arasında yaygın bir kimle kullanılsa da kim gene kelimesi romani halkına dair olumsuz kalıp yargılar ve doğru olmayan algılarla ilişkilendirilmiş olmasa nedeniyle genellikle saldırgan olarak kabul edilir"
   },
   {
    "id": "0065_1602",
@@ -348,12 +348,12 @@
   {
    "id": "0067_1565",
    "ref": "bilimin temel amacı bilimsel yöntemle dünyanın nasıl işlemekte olduğunu ortaya çıkarmaktır bu yöntem aslında çoğu bilimsel araştırmaya yön gösterir",
-   "hyp": "bildimin temel i amacıyı bilimsel yöntemle dünyanın nasıl işlemek olduğunu ortaya çıkarmaktır bu yöntem aslında çoğu bilimsel araştırmaya yön gösterir"
+   "hyp": "biliyimin temel i amacıyı bilimsel yöntemle dünyanın nasıl işlemek olduğunu ortaya çıkarmaktır bu yöntem aslında çoğu bilimsel araştırmaya yön gösterir"
   },
   {
    "id": "0068_1510",
    "ref": "bm ayriyeten küresel ısınmadan etkilenen ülkelerin küresel ısınmanın etkileriyle baş etmelerine yardımcı olacak bir fonu tamamlamayı ümit ediyor",
-   "hyp": "bme aire yeten kuresel sunmadan itkeyen ülkelerin kuresel sunmanın etkileriyle baş etmelerini yardımcı olacak bir fonu tamamlamayı ümit ediyor"
+   "hyp": "bme aire yeten kuresi alısınmadan itikleyen ülkelerin kuresi alısınmanın itikeleriyle baş etmelerine yardımcı olacak bir fonu tamamlamayı ümit ediyor"
   },
   {
    "id": "0069_1551",
@@ -363,7 +363,7 @@
   {
    "id": "0070_1556",
    "ref": "1000 pulu 2000 yılında david klöcker ehrenstrahl tarafından guinness rekorlar kitabı na girmiş olan muazzam isveç krallarının büyük işleri idi",
-   "hyp": "bininci pulu 2000 yılında david klöker echranştan tarafından gines ve kornlar kitabına girmiş olan muazzam isveç krallarının büyük işleri idea"
+   "hyp": "bininci pulu 2000 yılında david klöker ehrençtan tarafından gines ve kornlar kitabına girmiş olan muazzam isveç krallarının büyük işleri idea"
   },
   {
    "id": "0071_1519",
@@ -373,7 +373,7 @@
   {
    "id": "0072_1646",
    "ref": "auckland ın iki limanın ortasında olması nedeniyle birçok plaj var en popüler olanları üç bölgededir",
-   "hyp": "avuklandın 2 mm ortasında olmasına dereyle birçok plaj var en popüler olanları 3 bölgede edir"
+   "hyp": "avuklandın iki millemin ortasında olmasına dereyle birçok plaj var en popüler olanları üç bölgüdedir"
   },
   {
    "id": "0073_1513",
@@ -388,22 +388,22 @@
   {
    "id": "0075_1640",
    "ref": "buzlanmış ve karlı yollarda sürtünme oldukça düşüktür ve kuru asfalt üzerindeymiş gibi araç sürmeniz mümkün değildir",
-   "hyp": "buzlanmış ve karlı yollarda sürtürme oldukça düşüktür ve kuru asfaat üzerindeymiş gibi araç sürmeniz mümkün değildir"
+   "hyp": "buzlanmış ve karlıyorlarda sürtürme oldukça düşüktür ve kuru asfalt üzerindeymiş gibi araç sürmeniz mümkün değildir"
   },
   {
    "id": "0076_1531",
    "ref": "doğu afrika adaları hint okyanusu nda doğu afrika açıklarında yer alır",
-   "hyp": "duğu afrika da alıları hint okuyor musun da duğu afrika açıklarında yeralı"
+   "hyp": "duğu afrika da alır hint okuyor musun da duğu afrika açıklarını yaralır"
   },
   {
    "id": "0077_1598",
    "ref": "araba çarptığında evde üç kişi vardı ancak hiçbiri zarar görmedi",
-   "hyp": "araba çarptığında evde 3 kişi vardı ancak hiçbiri zarar görmedi"
+   "hyp": "araba çarptığında evde üç kişi vardı ancak hiç bir rizarar görmedi"
   },
   {
    "id": "0078_1559",
    "ref": "italyanca diğer dillere nazaran daha kolaydır çünkü italyanca da çoğu kelime aynen yazıldığı gibi telaffuz edilir",
-   "hyp": "italya nın diğer dillerin o zaman daha kolaydır çünkü italya nınca da çoğu kilime aynen yazıldığı gibi taraf üst edilir"
+   "hyp": "italya nın diğer dillerin o zaman daha kolaydır çünkü italya nın çoğu kilime aynen yazıldığı gibi tarafı ödülür"
   },
   {
    "id": "0079_1562",
@@ -418,17 +418,17 @@
   {
    "id": "0081_1623",
    "ref": "maddelerin değiştirilebilmesi için tüm eyaletlerin oybirliğiyle rızasına gerek duyuluyordu ve eyaletler merkezi hükümeti o kadar hafife alıyorlardı ki temsilcileri genellikle görev başında değillerdi",
-   "hyp": "matdelerin değiştirilebilmesi için tüm eyaletlerin o birliyle rızasına gerek duyuluyordu ve eyaletler merkezi hükümeti o kadar hafife alıyorlardaki tamsecileri genellikle görev başında değillerdi"
+   "hyp": "matdelerin değiştirilebilmesi için tüm eyaletlerin o birliğiyle rızasına gerek duyuluyordu ve eyaletler merkezi hükümeti o kadar hafife alıyorlardaki tamsecileri genellikle görev başında değillerdi"
   },
   {
    "id": "0082_1599",
    "ref": "orijinal popülasyon hiç değişmedi hala öncekiyle aynı adaptasyonlara ihtiyaçları var",
-   "hyp": "orjinal popilasyon değişmedi hala önce kirayna adaptasyonlara ihtiyaçları var"
+   "hyp": "orjinal popilasyon değişmedi hala önce kilayna adaptasyonlara ihtiyaçları var"
   },
   {
    "id": "0083_1512",
    "ref": "bu yeni ortam farklı kaynaklara ve farklı rakiplere sahiptir yani yeni nüfus daha önce ihtiyaç duymuş olduklarından daha güçlü bir rakip olmak için farklı özelliklere ya da adaptasyonlara ihtiyaç duyacaktır",
-   "hyp": "bu yeni ortam farklı kaynaklara ve farklı sırakiplere sahiptir yani yeni nüfus daha önce ihtiyaç duymuş olduklarından daha güçlü bir rakip olmak için farklı özelliklere ya da adaptasyonlara ihtiyaç duyacaktır"
+   "hyp": "bu yeni ortam farklı kaynaklara ve farklı sırakipleri sahiptir yani yeni nüfus daha önce ihtiyaç duymuş olduklarından daha güçlü bir rakip olmak için farklı özelliklere ya da adaptasyonlara ihtiyaç duyacaktır"
   },
   {
    "id": "0084_1518",
@@ -438,7 +438,7 @@
   {
    "id": "0085_1553",
    "ref": "noel hristiyanlığın en mühim bayramlarından biridir ve isa nın doğum günü olarak kutlanır",
-   "hyp": "noel hristiyanlığın en mühim bayramlarından biridir ve insanın doğum günü olarak kutlanır"
+   "hyp": "nuel hristiyanlığın en mühim bayramlarından biridir ve insanın doğum günü olarak kutlanır"
   },
   {
    "id": "0086_1556",
@@ -448,7 +448,7 @@
   {
    "id": "0087_1525",
    "ref": "18 yüzyıl pazarı tarihi camiler ve kiliseler ile şehir geleneksel türkiye den daha çok akdeniz avrupası havasına sahip olmasına rağmen geniş bulvarlar cam binalar ve modern alışveriş merkezleri geleneksel kırmızı kiremitli çatılarla çevrilidir",
-   "hyp": "18 yüzyıl pazarı tarihi camiler ve kiliseler ile şehir geleneksel türkiye den daha çok aklığınız avur pası havasına sahip olmasına rağmen geniş bulvarlar cam binalar ve modern alışveriş merkezleri geleneksel kırmızı kiremitli çatılarla çevirildir"
+   "hyp": "18 yüzyıl pazarı tarihi camiler ve kiliseler ile şehir geleneksel türkiye den daha çok aklığınız avur pası havasına sahip olmasına rağmen geniş bulvarlar cambinağlar ve modern alışveriş merkezleri geleneksel kırmızı kiremitli çatılarla çevirildir"
   },
   {
    "id": "0088_1534",
@@ -458,7 +458,7 @@
   {
    "id": "0089_1514",
    "ref": "yaralılar hastaneye nakledildikten sonra kavga sona erdiğinde kalan diğer mahkumlardan yaklaşık 40 tanesi avluda kaldı ve hücrelerine dönmeyi reddetti",
-   "hyp": "yarıllar hastaneye nakt edildikten sonra kavga sona erdiğinde kalan diğer mahkumlaran yaklaşık 40 tanesi alnı kalı ve hücrelerine dönmeyi reddetti"
+   "hyp": "yarıllar hastaneye nakt edildikten sonra kavga sonu erdiğinde kalan diğer mahkumlaran yaklaşık 40 tanesi alnı kalı ve hücrelerine dönmeyi reddetti"
   },
   {
    "id": "0090_1558",
@@ -468,7 +468,7 @@
   {
    "id": "0091_1536",
    "ref": "yerel merciler tesisin etrafında oturanları kapalı mekanlarda durmaları klimaları kapamaları ve çeşme suyu içmemeleri konusunda ikaz ediyor",
-   "hyp": "yeral merciler tescin etrafında o turanları kapalı mekanlarda durmaları kılmaları kapamaları ve çeşmi suyu içmemeleri konusunda iyi kaz ediyor"
+   "hyp": "yerel merciler tescin etrafında oturanları kapalı mekanlarda durmaları kılmaları kapamaları ve çeşmi suyu içmemeleri konusunda iyi kaz ediyor"
   },
   {
    "id": "0092_1520",
@@ -478,7 +478,7 @@
   {
    "id": "0093_1541",
    "ref": "kurye şirketlerine eşyaları kısa zamanda ulaştırmaları için büyük ödemeler yapılır genellikle ticari dökümanların malların ya da acil bir onarım için yedek parçaların ulaştırılmasında zaman çok önemlidir",
-   "hyp": "kurye şirketlerine eşyaları kısa zamanda ulaştırmaları için büyük ölemeler yapılır genellikle ticari dokunmanların malların ya da acil bir onara birkin yedek parçaların ulaştırılmasında zaman çok önemlidir"
+   "hyp": "kurye şirketlerine eşyaları kısa zamanda ulaştırmaları için büyük ölemeler yapılır genellikle ticari dokunmanların malların ya da acil bir onara birkin yedek parçaların ulaştırılmasında zaman çok önemlidır"
   },
   {
    "id": "0094_1529",
@@ -488,17 +488,17 @@
   {
    "id": "0095_1621",
    "ref": "başlangıçta giyim doğudaki bizans kültüründen büyük ölçüde etkilenmiştir",
-   "hyp": "başlangıçta giyim doğudaki bizaz kötüründen büyük ölçüde etkilenmiştir"
+   "hyp": "başlangıçta giyim doğdaki bizaz kötüründen büyük ölçüde etkilenmiştir"
   },
   {
    "id": "0096_1622",
    "ref": "abd başkanı george w bush açıklamayı olumlu karşıladı",
-   "hyp": "abd başkanı 4 tuttabı lüburs açıklamayı olumlu karşıladı"
+   "hyp": "abd başkanı co2t blbur açıklamayı olumlu karşıladı"
   },
   {
    "id": "0097_1647",
    "ref": "ileri sürülen fikirler başka yerlerdeki daha ayrıntılı bilgilere nazaran çoğunlukla üstünkörü genel ve fazla basitleştirilmiştir",
-   "hyp": "yileri suyulan fikirler başka yerlerdeki daha ayrıntılı bilgilerin azar an çoğunlukla üstün körü genel ve fazla basitleştirilmiştir"
+   "hyp": "ileri su yüllerim fikirler başka yerlerdeki daha ayrıntılı bilgilerin azar an çoğunlukla üstün körü genel ve fazla basitmeştirilmiştir"
   },
   {
    "id": "0098_1612",
@@ -508,12 +508,12 @@
   {
    "id": "0099_1604",
    "ref": "nsa olarak 1978 camp david sözleşmesi 1970 lerin sonlarında abd çin ilişkilerinin normalleşmesi 1979 daki iran rehine krizine yol açan iran devrimi ve 1979 da afganistan ın sovyetler tarafından işgali gibi dünya meselelerinin diplomatik olarak ele alınmasında carter a yardımcı oldu",
-   "hyp": "en s a olarak 1978 camp david sözleşmesi 1970lerin sonlarında abd çin ilişkilerinin normalleşmesi 1979 i ıran rekini krizine yol açan ıran devrimi ve 1979 da afkanistan ın sovyetler tarafından işgali gibi dünya meselelerinin diplomatik olarak ele alınmasında kartıra yardımcı oldu"
+   "hyp": "en s a olarak 1978 camp david sözleşmesi 1970 lerin sonlarında abd çin ilişkilerinin normalleşmesi 1979 i ıran rekine krizine yol açan ıran devrimi ve 1979 da afganistan ın sovyetler tarafından işgali gibi dünya meselelerinin diplomatik olarak ele alınmasında kartıra yardımcı oldu"
   },
   {
    "id": "0100_1637",
    "ref": "dehşete düşen kral on altıncı louis iki küçük çocuğu 11 yaşındaki marie therese ve dört yaşındaki louis charles kraliçe marie antoinette ve kralın kız kardeşi madam elizabeth kalabalık bir kadın grubu tarafından 6 ekim 1789 tarihinde zorla versay dan paris e sürüldü",
-   "hyp": "dışı te düşen kral 16 lui 2 küçük çocuğu 11 yaşındaki marieteres ve 4 yaşındaki lui charles kralice mariet antoinette ve kral ın kız kardeşin madem elizabet kalabalık bir kadın grubu tarafından 6 1280 ın kustarı hinde zorla ver saydan parise sürülü"
+   "hyp": "dışıda düşen kral 16 lui iki küçük çocuğu 11 yaşındaki marieteres ve dört yaşındaki lui charles kralice mariet antoinette ve kral ın kız kardeşin madem elizabeth kalabalık bir kadın grubu tarafından altı iki bin yediği yüz seksen de kustari hinde zorla ver saydan parise sürülü"
   },
   {
    "id": "0101_1606",
@@ -523,12 +523,12 @@
   {
    "id": "0102_1636",
    "ref": "ispanyollar üç asır süren kolonileşme dönemini başlattı",
-   "hyp": "ispanyonlar 3 asır üstüren korunluğun işbe dönemini başattı"
+   "hyp": "ispanyonlar üç asır üstüren korunluğun işbe dönemini başattı"
   },
   {
    "id": "0103_1587",
    "ref": "bu sezon hastalığın ilk vakaları temmuz un sonlarında bildirildi",
-   "hyp": "bu sizon hasılığın iyi fakaları temizun sonlarında bilirli"
+   "hyp": "bu sizon hasılığın iyi fakaları temizliğinde bilgilerebilirsiniz"
   },
   {
    "id": "0104_1532",
@@ -538,7 +538,7 @@
   {
    "id": "0105_1548",
    "ref": "binlerce kilometre uzağınızda yaşayan birisini aradığınız zaman bir uyduyu araç olarak kullanmış oluyorsunuz",
-   "hyp": "1000lerce kilometre uzağınızda yaşayan birisine aradığınız zaman bir uyduyu araç olarak kullanmış oluyorsunuz"
+   "hyp": "binlerce kilometre uzağınızda yaşayan birisine aradığınız zaman bir uyduyu araç olarak kullanmış oluyorsunuz"
   },
   {
    "id": "0106_1518",
@@ -548,12 +548,12 @@
   {
    "id": "0107_1528",
    "ref": "bazı festivaller küçük çocuklu aileler için özel kamp alanlarına sahiptir",
-   "hyp": "bazı festivaller küçük çocuklu aylı için özel kamp alanlarına sahiptir"
+   "hyp": "bazı festivaller küçük çocuklu aileler için özel kamp alanlarına sahiptir"
   },
   {
    "id": "0108_1513",
    "ref": "arjantin dünyanın en iyi polo takımlarından birine ve en iyi oyunculara sahip olmakla meşhurdur",
-   "hyp": "arjantin dünyanın en iyi polo takımlarından birine ve en iyi oyuncuları sahip olmak ile ücretleşiyoruz"
+   "hyp": "arjantin dünyanın en iyi polo takımlarından birine ve en iyi oyuncuları sahip olmakla ücretleşir"
   },
   {
    "id": "0109_1578",
@@ -563,37 +563,37 @@
   {
    "id": "0110_1605",
    "ref": "anakaraya olan uzaklıktan dolayı memeliler yolculuğa çıkamadılar bu da dev kaplumbağayı galapagos ta otlayan ana hayvan haline getirdi",
-   "hyp": "anla koreye olan uzaklan doluyuz memdeler yolculuğa çıkılmanıdır bu da dev kaplım bayı galahub pagosta otlayan ana hayvan haline getirdi"
+   "hyp": "anla koreye olan uzaklan doluyuz memeler yolculuğa çıkılmanıdır bu da dev kaplım bayı galahub pagos ta otlayan ana hayvan haline getirdi"
   },
   {
    "id": "0111_1627",
    "ref": "antik roma yemekleri sonraki yüzyıllarda amerika veya asya dan avrupa ya gelen yiyecekleri içermiş olamaz",
-   "hyp": "antikromo yemeği ile sonraki yüzlalda amerika ve ası dan avrupa ya gelen yiyecekleri içermiş olamaz"
+   "hyp": "antikromo yemeği iltili sonraki yüzlalda amerika ve aslı dan avrupa ya gelen yiyecekleri içermiş olamaz"
   },
   {
    "id": "0112_1635",
    "ref": "çevreye karşı daha duyarlı yaşamaya başlayabilir çevrecilik hareketlerine katılabilir hatta geleceğin sorunlarını biraz olsun azaltabilmek için aktivist bile olabiliriz",
-   "hyp": "çevreye karşı daha duyarlayışamaya başlayabilir çevrecilik hareketlerine katılabilir hatta geleceğin sordularının biraz olsun azaltabilmek için aktiviz bile olabiliriz"
+   "hyp": "çevreye karşı daha duyarlayışamaya başlayabilir çevrecilik hareketlerine katılabilir hatta geleceğin sordularını biraz olsun azaltabilmek için aktiviz bile olabiliriz"
   },
   {
    "id": "0113_1581",
    "ref": "amazon altı mile varan genişliğiyle aynı zamanda dünya üzerindeki en geniş nehirdir",
-   "hyp": "amazon altı mlevaran genişliği ile aynı zamanda dünya üzerindeki en genişli heredir"
+   "hyp": "amazon altı mülebaran genişliğiyle aynı zamanda dünya üzerindeki en genişli heredir"
   },
   {
    "id": "0114_1523",
    "ref": "son skor tek puan farklı bir galibiyetti 21 20 ile all blacks in 15 maçlık galibiyet serisi sonlanmış oldu",
-   "hyp": "son score tek puan farklı bir galibi yetti 21 e 20 ile ol bulaksun 15 maçlık galibi yet serisi sonlanmış oldu"
+   "hyp": "son score tek puan farklı bir galibi yetti 21 20 ile ol bulaksun 15 maçlık galibi yet serisi sonlanmış oldu"
   },
   {
    "id": "0115_1571",
    "ref": "araplar aynı zamanda bu topraklara islam ı getirdi ve komorolarda ve mayotte ta çok yaygınlaştı",
-   "hyp": "arablar aynı zamanda bu toprakları islam ı getirdi ve komorolarda ve mayot da çok yaygınlaştı"
+   "hyp": "araplar aynı zamanda bu toprakları islam ı getirdi ve komorolarda ve mayvot da çok yaygınlaştı"
   },
   {
    "id": "0116_1530",
    "ref": "salı günü kesilmesi planlanıyordu ama olağanüstü hal mahkemesi kararıyla kurtarıldı",
-   "hyp": "salı günü kesimmesi planlanıyordu ama olan üstü hal mahkemesi kararıyla kurtarıldı"
+   "hyp": "salı günü kesilmesi planlanıyordu ama olan üstü hal mahkemesi kararıyla kurtarıldı"
   },
   {
    "id": "0117_1598",
@@ -608,22 +608,22 @@
   {
    "id": "0119_1657",
    "ref": "herhangi bir değişiklik veya talep doğrudan otele değil önce seyahat acentesine iletilmelidir",
-   "hyp": "her hangi bir değişiklikle yatalep doğrudan oteledeyil önce seyahat agentisine iletilmelidir"
+   "hyp": "herhangi bir değişiklikle yatalep doğrudan oteledeyil önce seyahat agentisine iletilmelidir"
   },
   {
    "id": "0120_1625",
    "ref": "ülkenin dört bir yanından gelen ünlü şarkıcılar bhajan veya ilahileri shri shyam a sundu",
-   "hyp": "ülkenin 4 bir yanından gelen ümnü şarkıcılar bajan veya ilahi leri şiriş yiyamaz sundu"
+   "hyp": "ülkenin dört bir yanından gelen ümnü şarkıcılar bajan veya ilahi leri şiriş yiyemaz sundu"
   },
   {
    "id": "0121_1630",
    "ref": "meksika dan arly velasquez erkekler oturuşlu super g yi 15 sırada bitirdi yeni zelandalı adam hall ise erkekler ayakta super g yi 9 sırada bitirdi",
-   "hyp": "meksi kadar arli velas kuyes erkekler oturuştuların superciyi 15 sırada bitirdi yeniz elandalı edim hall ise erkekler ayakta superciyi 9 sırada bitirdi"
+   "hyp": "meksi kadar arli ve laskoyez erkekler oturuşluğun süperciyi 15 sırada bitirdi yeni zevlandalı edim hall ise erkekler ayakta süperciyi 9 sırada bitirdi"
   },
   {
    "id": "0122_1588",
    "ref": "polise göre fotoğrafçıya çarpan aracın şoförünün cezai kovuşturma ile yüzyüze gelme ihtimali düşük",
-   "hyp": "polise göre fotoğrafkiya çarpan aracın şoförünün cezayı kovuşturmayı ile yüz ile gelme ihtimalini düşük"
+   "hyp": "polise göre fotoğrafkiya çarpan aracın şoförünün cezayı kovuşturma ile yüzüle gelme ihtimalini düşük"
   },
   {
    "id": "0123_1612",
@@ -643,42 +643,42 @@
   {
    "id": "0126_1597",
    "ref": "fıc west mağazasının karşısındaki stanley de bulunan adaların tek bankasında döviz bozdura bilirsiniz",
-   "hyp": "fıc ve est mağazasının karşısındaki stan videobulundan adaların tek bankasında dövüz bozurabilirsiniz"
+   "hyp": "fıc ve est mağazasının karşısındaki stanlığı adaların tek bankasında döviz bozulabilirsiniz"
   },
   {
    "id": "0127_1557",
    "ref": "1 dünya savaşı nda savaşın getirdiği dehşet ve zulme tanık olan milletler gelecekte tekrar böyle bir durumla karşı karşıya kalmaktan kaçınmak istediler",
-   "hyp": "birinci dünya savaşında savaşın getirdiği dehşet ve zurmet tanık olan milletler gelecekte tekrar böyle bir durumla karşı karşıya kalmaktan kaçırmak istediler"
+   "hyp": "birinci dünya savaşında savaşın getirdiği dehşet ve zürme tanık olan milletler gelecekte tekrar böyle bir durumla karşı karşıya kalmaktan kaçırmak istediler"
   },
   {
    "id": "0128_1534",
    "ref": "göreceli ulaşılmazlığıyla bir araya getirilince timbuktu egzotik uzak diyarlar için bir metafor olarak kullanılmaya başlandı",
-   "hyp": "göreceğini ulaşılmaz değil bir araya getirilince timbuktu eczotik uzak değerli bir için bir metafor olarak kullanılmaya başlandı"
+   "hyp": "göreceğini ulaşılmaz değil bir araya getirilince timbuktu egzotik uzak değerli bir metafor olarak kullanılmaya başlandı"
   },
   {
    "id": "0129_1542",
    "ref": "bush un sözcüsü gordon johndroe kuzey kore nin bu vaadini kore yarımadasında kanıtlanabilir nükleer silahsızlandırmayı sağlama yolunda büyük bir adım olarak niteledi",
-   "hyp": "bu şun sözcüsü gordon john rowe kuzey kore nin bu badini kore yarım adısında kanıtlanabildiği nükler silahsızlandırmayı sağlamayolunda büyük bir adım olarak niteledi"
+   "hyp": "bu şun sözcüsü gordon john rowe kuzey kore nin bu badini kore yaramadısında kanıtlanabildiği nükler silahsızlandırmayı sağlamayolunda büyük bir adım olarak niteledi"
   },
   {
    "id": "0130_1650",
    "ref": "tuzlu su timsahları okyanusta sürekli yaşamazlar birincil yaşam alanları rockhampton ın kuzeyindeki ırmak haliçleridir",
-   "hyp": "turlusut timzahları okyanıs la sürekli yaşamazlar birincili yaşam alanları rakhamdının kuzeyindeki ırma kalişleridir"
+   "hyp": "turlusut timzahları okyanıs la sürekli yaşamazlar birinci yaşam alanları rakhamd ın kuzeyindeki ırma kalişleridir"
   },
   {
    "id": "0131_1523",
    "ref": "son skor tek puan farklı bir galibiyetti 21 20 ile all blacks in 15 maçlık galibiyet serisi sonlanmış oldu",
-   "hyp": "son score tek puan farklı bir galibi yetti 21 20 ile ol bileksin 15 maçlık galibi yet serisi sonlanmış oldu"
+   "hyp": "son score tek puan farklı bir galibi yetti 21 20 ile ol bileksin 15 maçlık galibi yetseliyisi sonlanmış oldu"
   },
   {
    "id": "0132_1603",
    "ref": "hem sivil hem de askeri operasyonlarda kullanılan uçakların bakımının iyi yapılmadığı ve eski bir filoya sahip olan iran da hava kazaları sıklıkla meydana gelmektedir",
-   "hyp": "her sevin hem de askeri operasyonlarla kullanılan uçakların bakımının iyi yapılmadı ve eski bir filoye sahip olan iranda hava kazanları saklıktan meydana gelmektedir"
+   "hyp": "her sevinim hem de askeri operasyonlarla kullanılan uçakların bakımının iyi yapılmadı ve eski bir filoye sahip olan iranda hava kazanları saklıktan meydana gelmektedir"
   },
   {
    "id": "0133_1535",
    "ref": "hava trafik kontrolcülerinin uçakları daha hassas bir şekilde saptamasına ve pilotlara daha doğru bilgi vermesine olanak tanımak için eski yer radarı tabanlı teknolojinin aksine uydu tabanlı teknolojiyi kullanır",
-   "hyp": "hava trafik kontrolcilerinin uçaklara daha hassas bir şekilde saptamasına ve plaudlara daha doğru bilgi vermesine olanak tanımak için eski yer raderı tabanlı tepmöcinin aksine uydur tabanlı tepmöciyi kullanır"
+   "hyp": "hava trafik kontrolcularının uçaklara daha hassas bir şekilde saptamasına ve plaudlara daha doğru bilgi vermesine olanak tanımak için eski yer raderı tabanlı tepme yüzinin aksine uydu tabanlı tepme yüziyi kullanır"
   },
   {
    "id": "0134_1589",
@@ -688,12 +688,12 @@
   {
    "id": "0135_1586",
    "ref": "ilki slalom yarıştı ve ilkinde yarışı tamamlayamadı 116 yarışmacının 36 sı aynı kaderi paylaştı",
-   "hyp": "ilk salon yarıştı ve ilkinde yarışı tamamlayamadı yüzülenin atı yarışmacının 36 ı aynı kaderi paylaştı"
+   "hyp": "ilk salon yarıştı ve ilkinde yarışı tamamlayamadı yüzunun atı yarışmacının 30 altısı aynı kaderi paylaştı"
   },
   {
    "id": "0136_1652",
    "ref": "moldova daki temel inanç ortodoks hristiyanlığıdır",
-   "hyp": "molda vadaki temel inanç ortodox hristiyanlığı dır"
+   "hyp": "molda vada kit temel inanç ortodox hristiyanlığı dır"
   },
   {
    "id": "0137_1545",
@@ -713,17 +713,17 @@
   {
    "id": "0140_1596",
    "ref": "doğa bilimciler ve filozoflar klasik metinlere ve özellikle latince kutsal kitap a odaklandılar",
-   "hyp": "doğabilimciler ve filozoflar klasik metinleri ve özellikle datıncı kutsal kitaba odaklandılar"
+   "hyp": "doğabilimçiler ve filozoflar klasik metinleri ve özellikle datıncı kutsal kitaba odaklandılar"
   },
   {
    "id": "0141_1565",
    "ref": "bilimin temel amacı bilimsel yöntemle dünyanın nasıl işlemekte olduğunu ortaya çıkarmaktır bu yöntem aslında çoğu bilimsel araştırmaya yön gösterir",
-   "hyp": "bilimin temel acı amacı bilimsel yöntemle dünyanın nasıl işlemekte olduğunu ortaya çıkarmaktadır bu yöntem aslında çoğu bilimsel alerşirmeye yön gösterir"
+   "hyp": "bilimin temel acı amacı bilimsel yöntemle dünyanın nasıl işlemekte olduğunu ortaya çıkarmaktadır bu yöntem aslında çoğu bilimsel alırşırmaya yön gösterir"
   },
   {
    "id": "0142_1555",
    "ref": "kilise bahçesinde birkaç mezarın üzerinde mermerden yapılmış ilginç güvercinlerin heykelleri var",
-   "hyp": "kırisa bahçesinde bir kaç mızırım üzerinde mermerdan yapılmış ilginç güvercinlerin heykerleri var"
+   "hyp": "kırisa bahçesinde birkaç mızırın üzerinde mermerdan yapılmış ilginç güvercinlerin heykerleri var"
   },
   {
    "id": "0143_1628",
@@ -733,7 +733,7 @@
   {
    "id": "0144_1583",
    "ref": "doğum kontrol hapının tıbbi bir gereklilik olarak görülmesi için hem kadın hem de erkekler tarafından kendisine iletilen çok sayıda olumlu yorum ve destek nedeniyle bu çıkarıma ulaştı",
-   "hyp": "doğum kontrol yapının tibihi bir gerektirik olarak görümesi için hem kadın hem de arkekler tarafından kendisine iletilen çok suyada olumluyorum ve desek nedenine buçuk aramı ulaştır"
+   "hyp": "doğum kontrol yapının tibihi bir gerektirik olarak görümesi için hem kadın hem de arkekler tarafından kendisine iletilen çok sayede olunuyorum ve desek ne denilenine bu çıkarıma ulaştır"
   },
   {
    "id": "0145_1577",
@@ -743,7 +743,7 @@
   {
    "id": "0146_1516",
    "ref": "lütfen kampa hak ettiği tüm haysiyet ciddiyet ve saygıyla davranın holokost veya naziler hakkında şaka yapmayın",
-   "hyp": "lütfen kampa hak ettiği tüm haysiye ettik ciddiyet ve saygıyla davranın holocaust veya naziler hakkında şaka yapmayın"
+   "hyp": "lütfen kampa hak ettiği tüm haysiye ettiği ciddiyet ve saygıyla davranın holokost veya naziler hakkında şaka yapmayın"
   },
   {
    "id": "0147_1607",
@@ -753,7 +753,7 @@
   {
    "id": "0148_1611",
    "ref": "bilim insanları bu hayvanın tüylerinin gövdenin alt kısmında soluk veya karotenoid renkli üst kısmında ise kestane kahverengi olduğunu söylüyor",
-   "hyp": "bilim insanları bu hayvanın tüylerinin göğdenin alt kısmında soluk veya karetanoid renkli üst kısmında ise kestane kahverengi olduğunu söylüyor"
+   "hyp": "bilim insanları bu hayvanın tüylerinin göğdenin alt kısmında soluk veya karatanoid renkli üst kısmında ise kestane kahverengi olduğunu söylüyor"
   },
   {
    "id": "0149_1526",
@@ -768,7 +768,7 @@
   {
    "id": "0151_1515",
    "ref": "bu martelly nin dört yıl içindeki beşinci geçici seçim konseyi olacak",
-   "hyp": "bu martalline nin 4 yıl içindeki 5 geçici seçim konseyi olacak"
+   "hyp": "bu martalli nin 4 yıl içindeki beşinci geçici seçim konseyi olacak"
   },
   {
    "id": "0152_1648",
@@ -783,22 +783,22 @@
   {
    "id": "0154_1521",
    "ref": "uzaydaki uydu çağrıyı alır ve neredeyse anlık bir şekilde geri yansıtır",
-   "hyp": "uzaydaki uydu çağrıyı alır ve neredeyse anlık bir şekilde geriyan stır"
+   "hyp": "uzaydaki uydu çağrıyı alır ve neredeyse anlık bir şekilde geriye anstır"
   },
   {
    "id": "0155_1623",
    "ref": "maddelerin değiştirilebilmesi için tüm eyaletlerin oybirliğiyle rızasına gerek duyuluyordu ve eyaletler merkezi hükümeti o kadar hafife alıyorlardı ki temsilcileri genellikle görev başında değillerdi",
-   "hyp": "matdelerin değiştirililmesi için tüm eyaletlerin o birileri zasına gerek duyuluyor ve eyaletler merkezi hükümetin o kadar hafife alıyorlarlaki tamsizcileri genellikle göre başında değillerdi"
+   "hyp": "matdelerin değiştirililmesi için tüm eyaletlerin o birileri zasına gerek duyuluyor ve eyaletler merkezi hükümetin o kadar hafife alıyorlarlardı ki tamsizcileri genellikle göre başında değillerdi"
   },
   {
    "id": "0156_1654",
    "ref": "farkında mısın bilmiyorum ama orta amerika dan gelen ürünlerin çoğu bu ülkeye gümrüksüz geldi",
-   "hyp": "farkında mısın bilmiyorum ama orta amerikadan gelen ürünlerin çoğu bu ülkeyi görmüksüz geldi"
+   "hyp": "farkında mısın bilmiyorum ama orta amerika dan gelen ürünlerin çoğu bu ülkeye gülmüksüz geldi"
   },
   {
    "id": "0157_1573",
    "ref": "telefon araması yapabilmek için uyduyu açıkça görebilmeniz bunun için de açık havada bulunmanız gerektiğinden uydu telefonu çoğu zaman cep telefonunun yerine geçmez",
-   "hyp": "telefon araması yapabilmek için uyduyu açıkça görebilmeniz bunun için de açık havada bulunmanız gerektiğinden uydur telefonu çoğu zaman cep telefonunun yerine geçmez"
+   "hyp": "telefon araması yapabilmek için uyduyu açıkça görebilmeniz bunun için de açık havada bulunmanız gerektiğinden uydu telefonu çoğu zaman cep telefonunun yerine geçmez"
   },
   {
    "id": "0158_1557",
@@ -823,12 +823,12 @@
   {
    "id": "0162_1524",
    "ref": "metrik sistemin kullanılması mutlakiyetçilikten cumhuriyetçiliğe geçiş milliyetçilik ve ülkenin tek bir hükümdara değil halka ait olduğu inancı gibi pek çok sosyal ve politik etki var",
-   "hyp": "metrik sistemin kullanılması mutlaka yetkilikten cumhuriyetçılaya geçiş milli yetçilik ve ülkenin tepbir hücümde aradeyil halka ait olduğu inancı gibi pek çok sosyal ve politik etki var"
+   "hyp": "metrik sistemin kullanılması mutlaka yetkilikten cumhuriyetçılığa geçiş milli yetçilik ve ülkenin tepbir hücümde aradı değil halka ait olduğu inancı gibi pek çok sosyal ve politiki etki var"
   },
   {
    "id": "0163_1538",
    "ref": "point marlon ve fairmont arasındaki arazi sık sık tenha geri kalmış bölgelerden geçen buffalo pittsburgh otoyolu nun en zorlu sürüş koşullarını sunuyor",
-   "hyp": "point marlon payrimont arasındaki arazi ve sık sık tenha geri kalmış bölgede yerden geçen bu fola pissburg otoyonun en zorlu sürüş koşullarını sunuyor"
+   "hyp": "point marlon payır mont arasındaki arazi ve sık sık tenha geri kalmış bölgelerden geçen bu fola pissburg otoyonun en zorlu sürüş koşullarını sunuyor"
   },
   {
    "id": "0164_1560",
@@ -838,7 +838,7 @@
   {
    "id": "0165_1600",
    "ref": "yerinde etkinlik örnekleri avcılık balıkçılık fotoğrafçılık kuş seyri ile parkları ziyaret ve ekosistem hakkında bilgileri incelemekten oluşur",
-   "hyp": "yerinde etkinlik örnekleri avcılık balıkçılık fotoğrafçılık kuş seriyle partlarız yaret ve ekosistam hakkını bilgileri incenemekten oluşur"
+   "hyp": "yerinde etkinlik örnekleri avcılık balıkçılık fotoğrafçılık kuş seriyle partlarız yarat ve ekosistam hakkını bilgileri incenemekten oluşur"
   },
   {
    "id": "0166_1630",
@@ -848,12 +848,12 @@
   {
    "id": "0167_1563",
    "ref": "bunun genç bir dinozorun kuyruğu olmasına rağmen araştırmacılar örneğin bir civciv tüyünü değil yetişkin tüylerini işaret ettiğini iddia etti",
-   "hyp": "bunun genç bir dinozunun kuyruğu olmasını rağmen araştırmacılar örneğin bir çevirciv düğünde iyi yetişkin tüylüğünde işaretliğini iddia etti"
+   "hyp": "bunun genç bir dinozunun kuyruğu olmasını rağmen araştırmacılar örneğin bir ceviz yüv düğünde iyi yetişkin tüylüğünde işaretliğini iddia etti"
   },
   {
    "id": "0168_1526",
    "ref": "kış aylarında kuzey kutbu veya antarktika bölgelerini ziyaret ederseniz kutup gecesini yaşarsınız bu da güneşin ufkun üzerinde yükselmemesi demektir",
-   "hyp": "kışaylarında kuzeyi kutlu veya antaktika bölgelerimizi yaratabilirsiniz kutup gecesini yaşarsınız bu da güneşim ufkun üzerinde yükselmemesi demektir"
+   "hyp": "kışaylarında kuzeyi kutlu veya antaktika bölgelerimizi yaratabilirsiniz kutup gecesini yaşarsınız bu da güneşin ufkun üzerinde yükselmemesi demektir"
   },
   {
    "id": "0169_1633",
@@ -868,7 +868,7 @@
   {
    "id": "0171_1582",
    "ref": "ibrani ailesinin yaşamının çoğu açık havada geçiyordu",
-   "hyp": "ibrahim ibrahim in çok açık havada geçiyor orada"
+   "hyp": "ibrani ailesinin yeşeminin çoğu açık havada geçiyor orada"
   },
   {
    "id": "0172_1576",
@@ -878,7 +878,7 @@
   {
    "id": "0173_1616",
    "ref": "bilim bu devasa karbon ekonomisinin son iki milyon yıldır insan evrimini destekleyen istikrarlı biyosfer durumunu bozduğunu gösteriyor",
-   "hyp": "bilim bu devasa carbon ekonomisinin son 2 milyon yıldır insan evrimini destekleyen istikrarlı biosfer durumunu bozduğunu gösteriyor"
+   "hyp": "bilim bu devasa carbon ekonomisinin son iki milyon yıldır insan evrimini destekleyen istikrarlı biosfer durumunu bozduğunu gösteriyor"
   },
   {
    "id": "0174_1571",
@@ -893,12 +893,12 @@
   {
    "id": "0176_1575",
    "ref": "israil anlaşmanın imzalanmasının ardından on yıl boyunca vadide askerlerin bulunmasını talep ederken filistin bu koşulun yalnızca beş yılla sınırlandırılmasını kabul ediyor",
-   "hyp": "israil anlaşmanın imzalanmasının ardından 10 yıl boyunca vadi de askerlerin bulunmasını talep ederken filistin in bu koşunun yalnızca 5 yıllasını randırılmasını kabul ediyor"
+   "hyp": "israil anlaşmanın imzalanmasının ardından on yıl boyunca vadi de askerlerin bulunmasını talep ederken filistin in bu koşunun yalnızca beş yıllasını randırılmasını kabul ediyor"
   },
   {
    "id": "0177_1548",
    "ref": "binlerce kilometre uzağınızda yaşayan birisini aradığınız zaman bir uyduyu araç olarak kullanmış oluyorsunuz",
-   "hyp": "binlerce kilometre uzanızda yaşayan birisini aradığınız zaman bir uyluyu araç olarak kullanmış oluyorsunuz"
+   "hyp": "binlerce kilometre uzanızda yaşayan birisini aradığınız zaman bir uyduyu araç olarak kullanmış oluyorsunuz"
   },
   {
    "id": "0178_1596",
@@ -908,12 +908,12 @@
   {
    "id": "0179_1612",
    "ref": "su 100 fit genişlikteki bir kesitten setin üzerine dökülüyor",
-   "hyp": "su yüz fit geniştekteki bir kesetten setin üzerine dökülüyor"
+   "hyp": "su 100 fit geniştekteki bir kesetten setin üzerine dökülüyor"
   },
   {
    "id": "0180_1600",
    "ref": "yerinde etkinlik örnekleri avcılık balıkçılık fotoğrafçılık kuş seyri ile parkları ziyaret ve ekosistem hakkında bilgileri incelemekten oluşur",
-   "hyp": "yerinde etkinlik örnekleri avcılık balıkçılık fotoğrafçılık kurş seyri ile parkları ziyaret eden ve ekotistam hakkında bilgileri incelemekten oluşur"
+   "hyp": "yerinde etkinlik örnekleri avcılık balıkçılık fotoğrafçılık kurs seyri ile parkları ziyaret eden ve ekotistam hakkında bilgileri incelemekten oluşur"
   },
   {
    "id": "0181_1621",
@@ -928,12 +928,12 @@
   {
    "id": "0183_1636",
    "ref": "ispanyollar üç asır süren kolonileşme dönemini başlattı",
-   "hyp": "ispaniye onlar 3 ısır süren kolonileşme dönemini başlattı"
+   "hyp": "ispaniye olarak üç ısır süren kolonileşme dönemini başlattı"
   },
   {
    "id": "0184_1564",
    "ref": "dr moll a göre hastalardan bazılarına böcek hastanede bulaşmış olabilir ve en azından ikisi hastane sağlık çalışanıdır",
-   "hyp": "doktor moğla göre hastalardan bazılarına böcek hastanede bulaşmış olabilir ve en azından 2 seh hastane sağlık çalışanıdır"
+   "hyp": "doktor moğla göre hastalardan bazılarına böcek hastanede bulaşmış olabilir ve en azından ikisi hastane sağlık çalışanıdır"
   },
   {
    "id": "0185_1615",
@@ -948,12 +948,12 @@
   {
    "id": "0187_1613",
    "ref": "bazı eyerler özellikle de ingiliz eyerleri düşmekte olan bir binicinin geriye çekmesiyle üzengi derisinin eyerden düşmesine izin veren güvenlik çubukları bulunur",
-   "hyp": "bazı eğerler özellikleri ingiliz eğerleri düşmekte olan bir bineceğinin geriyi çekmesiyle üzerindirilerisini eğerden düşmesini izin veren güvenlik çobukları bulunur"
+   "hyp": "bazı eğerler özellikleri ingiliz eğerleri düşmekte olan bir bineceğinin geriyi çekmesiyle üzerindir eğerden düşmesine izin veren güvenlik çobukları bulunur"
   },
   {
    "id": "0188_1657",
    "ref": "herhangi bir değişiklik veya talep doğrudan otele değil önce seyahat acentesine iletilmelidir",
-   "hyp": "her hangi bir değişiklik veya talep doğrudan otel edeyil önce seyat agentisine iletilmelidir"
+   "hyp": "herhangi bir değişiklik veya talep doğrudan otel edeyil önce seyat acente iletilmelidir"
   },
   {
    "id": "0189_1560",
@@ -963,17 +963,17 @@
   {
    "id": "0190_1533",
    "ref": "birçok yaygın biçim örneğin aps biçim ailesi bu en boy oranına eşittir veya çok yakındır",
-   "hyp": "bir çok yaygın biçim örneğin apc biçim ailesi bu en boyuranınla eşittir veya çok yakındır"
+   "hyp": "bir çok yaygın biçim örneğin aps biçim ailesi bu en boyu oranınla eşittir veya çok yakındır"
   },
   {
    "id": "0191_1533",
    "ref": "birçok yaygın biçim örneğin aps biçim ailesi bu en boy oranına eşittir veya çok yakındır",
-   "hyp": "bir çok yaygın biçim örneğin apc biçim ailesi bu en bu yoranına eşittir veya çok yakındır"
+   "hyp": "bir çok yaygın biçim örneğin aps biçim ailesi bu en bu yoranına eşittir veya çok yakındır"
   },
   {
    "id": "0192_1638",
    "ref": "safariler belki de afrika daki en büyük turizm çekiciliğidir ve birçok ziyaretçi için en öne çıkan noktadır",
-   "hyp": "safariler belki de afrika daki en büyük turzim çekici lider ve birçok ziyareti için en ona çıkan noktaları"
+   "hyp": "safariler belki de afrika daki en büyük turzim çekici lider ve birçok ziyareti için en ona çıkan noktalar"
   },
   {
    "id": "0193_1648",
@@ -988,12 +988,12 @@
   {
    "id": "0195_1533",
    "ref": "birçok yaygın biçim örneğin aps biçim ailesi bu en boy oranına eşittir veya çok yakındır",
-   "hyp": "bir çok yaygın biçim örneğin aps biçim ailesi bu emboy oranına eşittir veya çok yakındır"
+   "hyp": "bir çok yaygın biçim örneğin aps biçim ailesi bu en boyoranına eşittir veya çok yakındır"
   },
   {
    "id": "0196_1550",
    "ref": "kayak kayak müptelaları olarak da adlandırılan ve belirli bir yerde kayak yapmak için bütün tatillerini planlayan pek çok meraklısı için önemli bir seyahat aktivitesidir",
-   "hyp": "kayak kayak müpteraları olarak dağıtlandırılan ve belirli bir yerde kayak yapmak için bütün tatillerini planlayan pek çok meraklısı için önemli bir seyahat aktivitesidir"
+   "hyp": "kayak kayak müptelaları olarak dağıtlandırılan ve belirli bir yerde kayak yapmak için bütün tatillerini planlayan pek çok meraklısı için önemli bir seyahat aktivitesidir"
   },
   {
    "id": "0197_1531",
@@ -1008,12 +1008,12 @@
   {
    "id": "0199_1658",
    "ref": "günde sadece on sekiz tane madalya alınma imkanı olduğu için birkaç ülke madalya sahnesine çıkmayı başaramadı",
-   "hyp": "günde sadece 18 tane madali alınmayın kanalı olduğu için birkaç ülke madaliye sahnesine çıkmayı başaramadı"
+   "hyp": "günde sadece 18 tane madalya alınmayım kane olduğu için birkaç ülke madalya sahnesine çıkmayı başaramadı"
   },
   {
    "id": "0200_1579",
    "ref": "bu noktada ırak ta yapılacak eylemlerin mezhep savaşlarını artan şiddeti veya kaosa kayışı durduracağını kimsenin garanti edemeyeceği konusunda uyarıyor",
-   "hyp": "bu noktada öğrak da yapılacak eğlenlerin mesep savaşlarını artan şiddeti veya kağısa kayışır durduracağını kimsenin garantiyedemeyeceği konusunda uyanıyor"
+   "hyp": "bu noktada övrak da yapılacak eğlenlerin mesep savaşlarını artan şiddeti veya kağısa kayışır durduracağını kimsenin garantiyedemeyeceği konusunda uyanıyor"
   },
   {
    "id": "0201_1600",
@@ -1023,7 +1023,7 @@
   {
    "id": "0202_1642",
    "ref": "abd emperyalizminin filipinler i fethetmek için yaptığı savaş harcamaları filipin halkının kendisi tarafından karşılanıyordu",
-   "hyp": "abd enferyalizmenin filipinleri fet etmek için yaptığı savaş harcamaları filipin halkının kendisi tarafından karşılanıyordu"
+   "hyp": "abd enferyalizmenin filipinleri fet etmek için yaptığı savaş harcamaları filipin halkının kendisi tarafından karşılanıyor"
   },
   {
    "id": "0203_1532",
@@ -1033,7 +1033,7 @@
   {
    "id": "0204_1652",
    "ref": "moldova daki temel inanç ortodoks hristiyanlığıdır",
-   "hyp": "molda vada ki temel inanç ortorluk süresi de anlığıdır"
+   "hyp": "molda baka temel inanç ortalık süresi yanlığıdır"
   },
   {
    "id": "0205_1635",
@@ -1043,7 +1043,7 @@
   {
    "id": "0206_1597",
    "ref": "fıc west mağazasının karşısındaki stanley de bulunan adaların tek bankasında döviz bozdura bilirsiniz",
-   "hyp": "fıc west mazısının karşısındaki sitel lider bulunan adaların tek bankasında döviz bozları bilirsiniz"
+   "hyp": "fıc west madrasının kaşısındaki sitel lider bulunan adaların tek bankasında döviz bozluru bilirsiniz"
   },
   {
    "id": "0207_1613",
@@ -1053,7 +1053,7 @@
   {
    "id": "0208_1591",
    "ref": "eski meclis sözcüsü newt gingrich teksas valisi rick perry ve kongre üyesi michele bachmann sırasıyla dördüncü beşinci ve altıncı oldular",
-   "hyp": "eski meclisi sözüsü neft gengrich tek sas valisi rick perry ve kongriyevisi michel bachman sırasıyla doğruduncu beşinci ve altıncı oldular"
+   "hyp": "eski meclisi sözüsü neft gengrich tek sas valisi rick perry ve kongriyevisi michelle bachman sırası ile doğruduncu beşinci ve altıncı oldular"
   },
   {
    "id": "0209_1570",
@@ -1068,17 +1068,17 @@
   {
    "id": "0211_1575",
    "ref": "israil anlaşmanın imzalanmasının ardından on yıl boyunca vadide askerlerin bulunmasını talep ederken filistin bu koşulun yalnızca beş yılla sınırlandırılmasını kabul ediyor",
-   "hyp": "israil anlaşmanın imzalanmasının ardından 10 yıl boyunca vadi de askerlerin bulunmasını telepederken filistin bu koşunun yalnızca beş yıllasını ırlandırılmasını kabul ediyor"
+   "hyp": "israil anlaşmanın imzalanmasının ardından on yıl boyunca vadi de askerlerin bulunmasını telepederken filistin bu koşunun yalnızca beş yıllısını randırılmasını kabul ediyor"
   },
   {
    "id": "0212_1626",
    "ref": "olimpiyat altın madalya sahibinin 100m ve 200m serbest stil ve ingiliz milletler topluluğu oyunlarında üç bayrak yarışında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüphe altında",
-   "hyp": "olimpiyat altın madalya sahibinin 100 metre ve 200 metre serbest sitil ve ingiliz milletler topluluğu oyunlarında 3 bayrake yarışında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüpe altında"
+   "hyp": "olimpiyat altın madalya sahibinin 100 m ve 200 m serbest sitil ve ingiliz milletler topluluğu oyunlarında üç bayrake yarışında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüpe altında"
   },
   {
    "id": "0213_1545",
    "ref": "köri içerdiği sıvı miktarına göre kuru veya ıslak olarak adlandırılabilir",
-   "hyp": "körü içerdeyi su umittarına göre kuru veya ısak olarak alandırılabilir"
+   "hyp": "kırı içerliği sığım iddia arına göre kuru veya ısak olarak alandırılabilir"
   },
   {
    "id": "0214_1658",
@@ -1088,27 +1088,27 @@
   {
    "id": "0215_1516",
    "ref": "lütfen kampa hak ettiği tüm haysiyet ciddiyet ve saygıyla davranın holokost veya naziler hakkında şaka yapmayın",
-   "hyp": "lütfen kampaha kettiği tüm haysiyet ciddi et ve saygıyla davranın hologos tu ve anaziler hakkında şaka yapmayın"
+   "hyp": "lütfen kampaha kettiği tüm haysiyet ciddiğit ve saygıyla davranın hologos tu ve anaziler hakkında şaka yapmayın"
   },
   {
    "id": "0216_1539",
    "ref": "bir alt kültürün mensupları o kültürün bir parçası olduklarını çoğu zaman moda tavır ve argoyu içeren farklı ve sembolik bir tarz kullanarak ifade eder",
-   "hyp": "1 6 kültürün mensupları o kültürün bir parçası olduğuları çoğu o zaman moda tavır ve arguyu geçeren farklı ve sembolik bir tarz kullanarak ifade eder"
+   "hyp": "1 6 kültürün mensupları o kültürün bir parçası olduğuları çoğu zaman moda tavır ve arguyu geçeren farklı ve sembolik bir tarz kullanarak ifade eder"
   },
   {
    "id": "0217_1632",
    "ref": "kadınlar kültürel farklılıkların taciz olarak addedecekleri şeylerle sonuçlanabileceğini ve takip edilmelerinin kollarından tutulmalarının vb alışılmamış olmadığını fark etmelidir",
-   "hyp": "kadınlar kültüral farklı ıklıların tacüz olarak atte diyecekler bir şeylerle sonuçlanabileceğini ve takip edilmelerinin kollarından tutulmalarının ve benzeri alışılmamış olmadığını fark etmelidir"
+   "hyp": "kadınlar kültüral farklı ıklıkların taciz olarak attığı diyeceklerle sonuçlanabileceğini ve takip edilmelerinin kollarından tutulmalarının ve benzeri alışılmamış olmadığını fark etmelidir"
   },
   {
    "id": "0218_1583",
    "ref": "doğum kontrol hapının tıbbi bir gereklilik olarak görülmesi için hem kadın hem de erkekler tarafından kendisine iletilen çok sayıda olumlu yorum ve destek nedeniyle bu çıkarıma ulaştı",
-   "hyp": "doğun kontrol yapının tıpıyı bir gerektilik olarak görülmesi için hem kadın hem erkekler tarafından kendisine elli titilen çok sayı da olunuyorum ve destek nedeniyle bu çıkarımı oluştu"
+   "hyp": "doğun kontrol yapının tıpıyı bir gerektilik olarak görülmesi için hem kadın hem erkekler tarafından kendisine elli itilen çok sayıda olunuyorum ve destek nedeniyle buçuklarımı oluştu"
   },
   {
    "id": "0219_1527",
    "ref": "polonya erkekler görme engelli kayakçısı maciej krezel ve rehber anna ogarzynska super g yi on üçüncü olarak bitirdi güney koreli jong seork park super g erkekler oturan kategorisini yirmi dördüncü olarak bitirdi",
-   "hyp": "polonya erkekler görme engelli kayakçısı masiyec kreizen veretber anla ogarzinska süperciyi yi 13 olarak bitirdi güney koreli john sor park süperci erkekler oturan kategorisini 24 olarak bitirdi"
+   "hyp": "polonya erkekler görme engelli kayakçısı masiyec kreizel veretber anla ogarzinska süperciyi yi 13 olarak bitirdi güney koreli john sor park süperci erkekler oturan kategorisini 24 olarak bitirdi"
   },
   {
    "id": "0220_1628",
@@ -1128,7 +1128,7 @@
   {
    "id": "0223_1629",
    "ref": "bazı raporlarda resmi ölü sayısını sekiz olduğu belirtiliyor resmi raporlar da 30 kişinin yaralandığını doğruluyor fakat kesin sayılar henüz bilinmiyor",
-   "hyp": "bazı raporlarda resmi ölü sayısını 8 olduğu belirtiliyor resmi raporlarda 30 kişinin yaralandığını doğruluyor fakat kesin sayılar henüz bilimmiyor"
+   "hyp": "bazı raporlarda resmi ölü sayısını sekiz olduğu belirtiliyor resmi raporlarda 30 kişinin yaralandığını doğruluyor fakat kesin sayılar henüz bilimmiyor"
   },
   {
    "id": "0224_1624",
@@ -1138,12 +1138,12 @@
   {
    "id": "0225_1628",
    "ref": "el sanatı ürünleri seri üretilen benzer ürünlerden daha yeni olmalarına rağmen antika olarak sınıflandırılabilir",
-   "hyp": "er sanatı ürünleri seri üretilen benzer ürünlerden daha yeni olmalarına rağmen antika olarak sınıflandırılabilir"
+   "hyp": "ersanatı ürünleri seri üretilen benzer ürünlerden daha yeni olmalarına rağmen antika olarak sınıflandırılabilir"
   },
   {
    "id": "0226_1646",
    "ref": "auckland ın iki limanın ortasında olması nedeniyle birçok plaj var en popüler olanları üç bölgededir",
-   "hyp": "alk landın 2 libanın ortasında olması növreniyle birçok plaj var en popüler olanları 3 bölgedebilir"
+   "hyp": "alklandın 2 libanın ortasında olması növreniyle birçok plaj var en popüler olanları üç bölgedir"
   },
   {
    "id": "0227_1539",
@@ -1153,27 +1153,27 @@
   {
    "id": "0228_1583",
    "ref": "doğum kontrol hapının tıbbi bir gereklilik olarak görülmesi için hem kadın hem de erkekler tarafından kendisine iletilen çok sayıda olumlu yorum ve destek nedeniyle bu çıkarıma ulaştı",
-   "hyp": "doğum kontrol hapının tıp bir bir gerekli k olarak görülmesi için hem kadın hem de erkekler tarafından kendisini iletilen çok sayıda olumluyorum ve destek nedeniyle bu çıkarımı ulaştı"
+   "hyp": "doğum kontrol hapının tıp bir bir gerekli olarak görülmesi için hem kadın hem de erkekler tarafından kendisini iletilen çok sayıda olumluyorum ve destek nedeniyle bu çıkarıma ulaştı"
   },
   {
    "id": "0229_1581",
    "ref": "amazon altı mile varan genişliğiyle aynı zamanda dünya üzerindeki en geniş nehirdir",
-   "hyp": "amazon 6 bile varan genişliği ile aynı zamanda dünya üzerindeki en geniş nehirir"
+   "hyp": "amazon altı bile varan genişliğiyle aynı zamanda dünya üzerindeki en geniş nehirir"
   },
   {
    "id": "0230_1530",
    "ref": "salı günü kesilmesi planlanıyordu ama olağanüstü hal mahkemesi kararıyla kurtarıldı",
-   "hyp": "salı günü kesilmesi planlanıyordu ama olan üstü hal mahkemesi kağı ile kurtarıldı"
+   "hyp": "salı gülü nü kesilmesi planlanıyordu ama olan üstü hal mahkemesi kağıtıyla kurtarıldı"
   },
   {
    "id": "0231_1521",
    "ref": "uzaydaki uydu çağrıyı alır ve neredeyse anlık bir şekilde geri yansıtır",
-   "hyp": "uzaydaki uydu tarihi alır benere desey alnık bir şekilde geriyan stır"
+   "hyp": "uzaydaki uydu tarihi alır benere deseylemek bir şekilde geriye anstır"
   },
   {
    "id": "0232_1527",
    "ref": "polonya erkekler görme engelli kayakçısı maciej krezel ve rehber anna ogarzynska super g yi on üçüncü olarak bitirdi güney koreli jong seork park super g erkekler oturan kategorisini yirmi dördüncü olarak bitirdi",
-   "hyp": "polonya erkekler görme engelli kayakçısı masiye yir kirezel veretber anla ogarzi nska süperciyi on üçüncü olarak bitirdi büne koreli john sour park süperci erkekler oturan kategoriesini yirmi dördüncü olarak bitirdi"
+   "hyp": "polonya erkekler görme engelli kayakçısı masiye yir kirezel veretber anla ogarzi nizka süperci yi on üçüncü olarak bitirdi büne koreli john sir park süperci yi erkekler oturan kategoriesini yirmi dördüncü olarak bitirdi"
   },
   {
    "id": "0233_1564",
@@ -1193,12 +1193,12 @@
   {
    "id": "0236_1599",
    "ref": "orijinal popülasyon hiç değişmedi hala öncekiyle aynı adaptasyonlara ihtiyaçları var",
-   "hyp": "orijinal popülasyon hiç değişmedi hala öncekiyle aynı adaptasyonlara ihtiyaçları var"
+   "hyp": "orijinal popülasyon hiç değişmedi hala öncekiyle aynı adat tasyonlara ihtiyaçları var"
   },
   {
    "id": "0237_1540",
    "ref": "prensip anlamında tibet budizmi çok basittir kundalini yoga meditasyon ve her şeyi kucaklayan bir sevgi patikasından oluşur",
-   "hyp": "prensi pannımında tibet buduzmi çok basittir kundalini yoga meditasyon ve her şeyi kuyacaklayan bir sevgiyi patikasından oluşur"
+   "hyp": "prensi pannamında tibet buduzmi çok basittir kundalini yoga meditasyon ve her şeyi kuyacaklayan bir sevgiyi patikasından oluşuyor"
   },
   {
    "id": "0238_1570",
@@ -1208,12 +1208,12 @@
   {
    "id": "0239_1643",
    "ref": "park 19 500 km² lik alanı içerir ve her biri farklı bir vahşi hayata destek veren farklı 14 ekobölgeye ayrılmıştır",
-   "hyp": "park 19 500 km karelik alanı içirir ve her bir farklı bir varşıya hayatta destek veren farklı 14 ekobörüye ayrılmıştır"
+   "hyp": "park 19 500 kmk alanı içirir ve her bir farklı bir varşıya hayatta destek veren farklı 14 ekobörüye ayrılmıştır"
   },
   {
    "id": "0240_1514",
    "ref": "yaralılar hastaneye nakledildikten sonra kavga sona erdiğinde kalan diğer mahkumlardan yaklaşık 40 tanesi avluda kaldı ve hücrelerine dönmeyi reddetti",
-   "hyp": "yarallar hastaneye nakt edildikten sonra kavga sona eldeinde kalan diğer mahkumlardan yaklaşık 40 tanesi avluda kaldı ve hücrelerini dömeyi retletti"
+   "hyp": "yarallar hastaneye nakt edildikten sonra kavga sona eldeinde kalan diğer mahkumlardan yaklaşık 40 tanesi avlu da kaldı ve hücrelerini dömeyi retletti"
   },
   {
    "id": "0241_1522",
@@ -1223,22 +1223,22 @@
   {
    "id": "0242_1540",
    "ref": "prensip anlamında tibet budizmi çok basittir kundalini yoga meditasyon ve her şeyi kucaklayan bir sevgi patikasından oluşur",
-   "hyp": "prensip anlamında tibet bu dizmi çok basiptir kundalini yoga meditasyon ve her şeyi kuyacaklayan bir sevgi patikasından oluşur"
+   "hyp": "prensip anlamında tibet bu dizmi çok basittir kundalini yoga meditasyon ve her şeyi kuyacaklayan bir sevgi patikasından oluşur"
   },
   {
    "id": "0243_1567",
    "ref": "yılın en büyük turnuvası aralık ayında las cañitas taki polo sahalarında gerçekleştirilir",
-   "hyp": "yılın en büyük turnubası aralık ayında lascanit hastaki polo sahalarında gerçekleştirilir"
+   "hyp": "yılın en büyük turunuvası aralık ayında lascanit hastaki polo sahalarında gerçekleştirilir"
   },
   {
    "id": "0244_1537",
    "ref": "piramitleri karanlıkta görebilir ve gösteri başlamadan önce onları sessizce izleyebilirsiniz",
-   "hyp": "piramitleri karanlıkta görebilir ve gösteri başlama dönce onları sessizce izleyebilirsiniz"
+   "hyp": "piramitleri karanlıkta görebilir ve gösteri başlama dönecek onları sesizle izleyebilirsiniz"
   },
   {
    "id": "0245_1649",
    "ref": "japonya da ilk kiraz çiçeği partileri imparator tarafından düzenleniyor ve yalnızca kendisi ve imparatorluk mahkemesi çevresindeki diğer aristokrasi üyeleri katılabiliyordu",
-   "hyp": "zaponya da ilk kiras çiçeği partileri imparator tarafından düzenleniyor ve yalnızca kendisi ve imparatorluk mahkemisi çevresindeki diğer aristokrasi üyeleri katılabiliyordu"
+   "hyp": "zaponya da ilk kiraz çiçeği partileri imparator tarafından düzenleniyor ve yalnızca kendisi ve imparatorluk mahkemisi çevresindeki diğer aristokrasi üyeleri katılabiliyordu"
   },
   {
    "id": "0246_1544",
@@ -1248,27 +1248,27 @@
   {
    "id": "0247_1584",
    "ref": "bişkek sokaklarında güvenlik güçleri bulunmadığı için geniş çaplı yağmanın gece boyunca devam ettiği bildirildi",
-   "hyp": "bişkek sokaklarında güvenlik güçleri bulunmadığı için geniş çatlı yamanın gece boyunca devam ettiği bildirinle"
+   "hyp": "bişkek sokaklarında güvenlik güçleri bulunmadığı için geniş çatlı yağmanın gece boyunca devam ettiği bildirinle"
   },
   {
    "id": "0248_1575",
    "ref": "israil anlaşmanın imzalanmasının ardından on yıl boyunca vadide askerlerin bulunmasını talep ederken filistin bu koşulun yalnızca beş yılla sınırlandırılmasını kabul ediyor",
-   "hyp": "israil anlaşmanın imzalanmasının ardından 10 yıl boyunca vadide askerlerin bulunmasını talep ederken filistin bu koşunun yalnızca beş yıllasını rendir almasını kabul ediyor"
+   "hyp": "israil anlaşmanın imzalanmasının ardından on yıl boyunca vadide askerlerin bulunmasını talep ederken filistin bu koşunun yalnızca beş yıllasını rendir almasını kabul ediyor"
   },
   {
    "id": "0249_1517",
    "ref": "yapay zeka araştırmaları akıllı davranış gerektiren görevlerin otomatikleştirilmesini sağlayacak robotlar geliştirmeyi içerir",
-   "hyp": "yapay zk araştırmaları akıllı davranış gerektiren görevlerin otomatikleştirilmesini sağlayacak robotlar geliştirmeyi içilir"
+   "hyp": "yapay zeka araştırmaları akıllı davranış gerektiren görevlerin otomatikleştirilmesini sağlayacak robotlar geliştirmeyi içirir"
   },
   {
    "id": "0250_1527",
    "ref": "polonya erkekler görme engelli kayakçısı maciej krezel ve rehber anna ogarzynska super g yi on üçüncü olarak bitirdi güney koreli jong seork park super g erkekler oturan kategorisini yirmi dördüncü olarak bitirdi",
-   "hyp": "polonya erkekler görme engellik ayakçısı masiyeş krizel ve rehber anla ogarzinska süperciyi 13 olarak bitirdi güneik koreli john seor park süperci erkekler oturan kategorisini 24 olarak bitirdi"
+   "hyp": "polonya erkekler görme engellik ayakçısı masiyeş krizel ve rehber anla ogarzinska süperciyi 13 olarak bitirdi güney koreli john seor park süperci erkekler oturan kategorisini 24 olarak bitirdi"
   },
   {
    "id": "0251_1603",
    "ref": "hem sivil hem de askeri operasyonlarda kullanılan uçakların bakımının iyi yapılmadığı ve eski bir filoya sahip olan iran da hava kazaları sıklıkla meydana gelmektedir",
-   "hyp": "hem civil hem da askeri operasyonlarda kullanılan çakların bakımının iyi yapılmadı ve eski bir filoye sahip olan iranda hava kazaları sırtlıklam edene gelmekte durur"
+   "hyp": "hem civil hem da askeri operasyonlarda kullanılan çakların bakımının iyi yapılmadı ve eski bir filoye sahip olan iran da hava kazaları sırtlıklam edene gelmekte dur"
   },
   {
    "id": "0252_1541",
@@ -1278,27 +1278,27 @@
   {
    "id": "0253_1582",
    "ref": "ibrani ailesinin yaşamının çoğu açık havada geçiyordu",
-   "hyp": "ibrahim ailesinin yaşamının çok açık havada geçiyordu"
+   "hyp": "ibraine ailesinin yaşamının çok açık havada geçiyordu"
   },
   {
    "id": "0254_1586",
    "ref": "ilki slalom yarıştı ve ilkinde yarışı tamamlayamadı 116 yarışmacının 36 sı aynı kaderi paylaştı",
-   "hyp": "ilki silalom yarıştı ve ilkinde yarışı tamamlayamadı 166 yarışmacının 36 isi aynı kaderi paylaştı"
+   "hyp": "ilkisi la limon yarıştı ve ilkinde yarışı tamamlayamadı 166 yarışmacının 36 isi aynı kaderi paylaştı"
   },
   {
    "id": "0255_1574",
    "ref": "kış aldatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren donma noktasının altına iner fakat rüzgar ve nem bir araya gelerek termometrenin gösterdiğinden daha soğuk hissetmenize neden olur",
-   "hyp": "kış allatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren donman uktasının altına iner fakat rüzgar venen bir araya gelevek termometrenin gösterdiğinden daha soğuk hissetmenizi neden olur"
+   "hyp": "kış allatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren donman uktasının altına iner fakat rüzgar ve nem bir araya gelebek termometrenin gösterdiğinden daha soğuk hissetmenizi neden olur"
   },
   {
    "id": "0256_1657",
    "ref": "herhangi bir değişiklik veya talep doğrudan otele değil önce seyahat acentesine iletilmelidir",
-   "hyp": "herhangi bir değişiklik veya talep doğrudan oten edeyi önce seyahat acantisine ilitirmelidir"
+   "hyp": "herhangi bir değişiklik veya talep doğrudan oten değil önce seyahat acantisine ilitirmelidir"
   },
   {
    "id": "0257_1643",
    "ref": "park 19 500 km² lik alanı içerir ve her biri farklı bir vahşi hayata destek veren farklı 14 ekobölgeye ayrılmıştır",
-   "hyp": "park 19 500 km karelik alını içerir ve her biri farklı bir vaşri hayata destek veren farklı 14 ek obörgüye ayrılmıştır"
+   "hyp": "park 19 500 km karelik alını içerir ve her biri farklı bir vaşri hayata destek veren farklı 14 ekobörgiyi ayrılmıştır"
   },
   {
    "id": "0258_1536",
@@ -1308,7 +1308,7 @@
   {
    "id": "0259_1563",
    "ref": "bunun genç bir dinozorun kuyruğu olmasına rağmen araştırmacılar örneğin bir civciv tüyünü değil yetişkin tüylerini işaret ettiğini iddia etti",
-   "hyp": "bunun genç bir dününüzun kuyruğu olmasını rağmen araştırmızılar örneğin bir cevviş ültüyü değil yetişkin tüylörüne işaret ettiğini iddia etti"
+   "hyp": "bunun genç bir dününüzun kuyruğu olmasını rağmen araştırmızılar örneğin bir cevviş ültüyüntüyi yetişkin tüylerini işaret ettiğini iddia etti"
   },
   {
    "id": "0260_1622",
@@ -1318,7 +1318,7 @@
   {
    "id": "0261_1592",
    "ref": "ilk başta yurtdışına gittiğinizde insanlar muhtemelen sabırlı ve anlayışlı olurlar yeni bir ülkedeki yolcuların uyum sağlaması gerektiğini bilirler",
-   "hyp": "ilk başta yurt dışına gittiğinizde insanlar muhtemelen sabırlı ve anlayışta olurlar yeni bir ülkedeki yolcuların uyum sağlaması gerektiğini bilirler"
+   "hyp": "ilk başta yurt dışına gittiğinizde insanlar muhtemelen sabırlı ve anlayışta olurlar yeni bir ülkedeki yolcuların uyum sağlaması gerekliğine biriler"
   },
   {
    "id": "0262_1639",
@@ -1333,22 +1333,22 @@
   {
    "id": "0264_1646",
    "ref": "auckland ın iki limanın ortasında olması nedeniyle birçok plaj var en popüler olanları üç bölgededir",
-   "hyp": "avuklandın 2 kmın ortasında olmasın edin birçok placı var en popüler olanları 3 bölgedebilir"
+   "hyp": "avuklandın 2 5 ın ortasında olmasını derine birçok plaj var en popüler olanları üç bölgüdedir"
   },
   {
    "id": "0265_1571",
    "ref": "araplar aynı zamanda bu topraklara islam ı getirdi ve komorolarda ve mayotte ta çok yaygınlaştı",
-   "hyp": "araplar aynı zamanda bu topraklara islam ı getirdi ve komur olarak da ve mayotta çok yaygınlaştı"
+   "hyp": "araplar aynı zamanda bu topraklara islam ı getirdi ve komorolarda ve maayi otta çok yaygınlaştı"
   },
   {
    "id": "0266_1547",
    "ref": "nhk ayrıca niigata ilinde bulunan kashiwazaki kariwa nükleer santralinin olağan surette faaliyette bulunduğunu belirtti",
-   "hyp": "en hk ayrıca nıgata ilinde bulunan kaşivaza ki kariva nükler santrın ın olan suur etti faaliyette bulunduğunu belirtti"
+   "hyp": "en hk ayrıca nıgata ilinde bulunan kaşivaza a ki kariva nükler santrın nin olağan suuretti fahaliyette bulunduğunu belirtti"
   },
   {
    "id": "0267_1531",
    "ref": "doğu afrika adaları hint okyanusu nda doğu afrika açıklarında yer alır",
-   "hyp": "doğa afrika adaları in topya mısında doğa afrika açıklarında yaralır"
+   "hyp": "doğa afrika adaları in topyağın üstünde doğa afrika açıklarında yaralır"
   },
   {
    "id": "0268_1554",
@@ -1358,17 +1358,17 @@
   {
    "id": "0269_1641",
    "ref": "fakat ormanlar sadece mangrov bataklıkları değildir ganj ovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarını da içerirler",
-   "hyp": "fakat ormanlar sadece mangrobataklıkları değildir gansovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarında içerirler"
+   "hyp": "fakat ormanlar sadece mangroba taklitları değildir gansovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarında içerirler"
   },
   {
    "id": "0270_1538",
    "ref": "point marlon ve fairmont arasındaki arazi sık sık tenha geri kalmış bölgelerden geçen buffalo pittsburgh otoyolu nun en zorlu sürüş koşullarını sunuyor",
-   "hyp": "point marlon ve fehr mont arasındaki arazi sık sık tenha geri kalmış bölgelerden geçen bu falo bit pitsburg otoylunun en zorlu sürüş koşullarını sunuyor"
+   "hyp": "point marlon ve fehr mont arasındaki arazi sık sık tenha geri kalmış bölgelerden geçen bu falo pittsburgh otoylunun en zorlu sürüş koşullarını sunuyor"
   },
   {
    "id": "0271_1617",
    "ref": "kruger ulusal parkı knp güney afrika nın kuzey doğusunda yer alır ve doğuda mozambik kuzeyde zimbabve sınırı boyunca uzanır ve güney sınırı timsah nehri nden oluşur",
-   "hyp": "kurulger ulusal parkı knp güney afrika nın küzey doğusunda yaradır ve doğuda mozambik küzey de zimbab ve sınırı boyunca uzanır ve güney sınırı timsah nehrinden oluşur"
+   "hyp": "kurulger ulusal parkı knp güney afrika nın kuzey doğusunda yaratır ve doğuda mozambik kuzey de zimbab ve sınırı boyunca uzanır ve güney sınırı timsah nehrinler oluşur"
   },
   {
    "id": "0272_1519",
@@ -1378,7 +1378,7 @@
   {
    "id": "0273_1609",
    "ref": "11 dörtlük ve 2 altılık vurarak sadece 41 topta 70 run ile robin uthappa atışta en yüksek skoru elde etmiştir",
-   "hyp": "11 4 lük ve iki atılık uğrağına sadece 41 topta 70 ran ile robin utapla atışta en yüksek skoru elde etmiştir"
+   "hyp": "11 4 lük ve iki altı lükur olarak sadece kutlu bir topta 70 rana ile robin utapla atışta en yüksek skoru elde etmiştir"
   },
   {
    "id": "0274_1537",
@@ -1388,12 +1388,12 @@
   {
    "id": "0275_1654",
    "ref": "farkında mısın bilmiyorum ama orta amerika dan gelen ürünlerin çoğu bu ülkeye gümrüksüz geldi",
-   "hyp": "farkında mısın bilmiyorum ama orta amerika dan gelen lirinnerin çoğu bürk e günlük süz geldi"
+   "hyp": "farkında mısın bilmiyorum ama orta amerika dan gelen lironların çoğu bürk e günlük süz geldi"
   },
   {
    "id": "0276_1548",
    "ref": "binlerce kilometre uzağınızda yaşayan birisini aradığınız zaman bir uyduyu araç olarak kullanmış oluyorsunuz",
-   "hyp": "1 5 km uzağında yaşayan birisini aradığınız zaman bir uyuyuyor araç olarak kullanmış oluyorsunuz"
+   "hyp": "1 5 lirasını aradığınız zaman bir uyuyuyor"
   },
   {
    "id": "0277_1650",
@@ -1408,17 +1408,17 @@
   {
    "id": "0279_1611",
    "ref": "bilim insanları bu hayvanın tüylerinin gövdenin alt kısmında soluk veya karotenoid renkli üst kısmında ise kestane kahverengi olduğunu söylüyor",
-   "hyp": "bilim insanları bu hayvanın tüylerinin göğdenin alt kısmında soluk veya karotenoid renkli üst kısmında ise kez tane kahveren ge olduğunu söylüyor"
+   "hyp": "bilim insanları bu hayvanın tüylerinin göğdenin alt kısmında soluk veya karotenoji trenkli üst kısmında ise kez tane kahveren ge olduğunu söylüyor"
   },
   {
    "id": "0280_1610",
    "ref": "bu becerilerin her biri gerçek hayatın sorunlarına çözüm sağlamaya odaklanan ayrı disiplinler haline geldi",
-   "hyp": "bu becerilerin her biri gerçek hayatının sorunlarına çözüm salamaya odaklanan ayrı disiplinler haline geldi"
+   "hyp": "bu becerilerin her biri gerçek hayatını sorunlarına çözüm salamaya odaklanan ayrı disiplinler haline geldi"
   },
   {
    "id": "0281_1515",
    "ref": "bu martelly nin dört yıl içindeki beşinci geçici seçim konseyi olacak",
-   "hyp": "bu materlinin 4 yıl içindeki 5 gecici seçim konseyi olacak"
+   "hyp": "bu materlinin dört yıl içindeki beşinci gecici seçim konsey olacak"
   },
   {
    "id": "0282_1517",
@@ -1433,27 +1433,27 @@
   {
    "id": "0284_1625",
    "ref": "ülkenin dört bir yanından gelen ünlü şarkıcılar bhajan veya ilahileri shri shyam a sundu",
-   "hyp": "ülkenin 4 bir yanından gelen ünlü şarkıcılar bajan veya ilahileri şirişeyama sundu"
+   "hyp": "ülkenin dört bir yanından gelen ünlü şarkıcılar bacan veya ilahileri şirişeyama sundu"
   },
   {
    "id": "0285_1592",
    "ref": "ilk başta yurtdışına gittiğinizde insanlar muhtemelen sabırlı ve anlayışlı olurlar yeni bir ülkedeki yolcuların uyum sağlaması gerektiğini bilirler",
-   "hyp": "ilk başta yurt dışına gittiğinizde insanlar muhtemelen sabırlı ve anlayışlı olurlar yeni bir ülkede ki yolcuların uyum sağlaması gerek yeni bilirler"
+   "hyp": "ilk başta yurt dışına gittiğinizde insanlar muhtemelen sabırlı ve anlayışlı olurlar yeni bir ülkedeki yolcuların uyum sağlaması gerek yeni bilirler"
   },
   {
    "id": "0286_1626",
    "ref": "olimpiyat altın madalya sahibinin 100m ve 200m serbest stil ve ingiliz milletler topluluğu oyunlarında üç bayrak yarışında yüzmesi gerekiyordu fakat şikayetlerinden dolayı zindeliği şüphe altında",
-   "hyp": "olimpiyat aldın madalya sahibinin 100 metre ve 200 metre serbest sitir ve ingiliz milletler topluluğu oyunlarında 3 bayrak yarışında yüzmesi gerekiyordu fakat hikayetlerinden dolayı zindeliği şüphaltından"
+   "hyp": "olimpiyat aldın madalya sahibinin 100 m ve 200 m serbestistir ve ingiliz milletler topluluğu oyunlarında üç bayrak yarışında yüzmese gerekiyordu fakat şikayetlerinden dolayı zindeliği şüphe altında"
   },
   {
    "id": "0287_1635",
    "ref": "çevreye karşı daha duyarlı yaşamaya başlayabilir çevrecilik hareketlerine katılabilir hatta geleceğin sorunlarını biraz olsun azaltabilmek için aktivist bile olabiliriz",
-   "hyp": "çevreye karşı daha duyarlı yaşamaya başlayabilir çevrecilik hareketlerine katılabilir hatta geleceğin sorunlarını biraz olsun azaltabilmek için aktivist bile olabiliriz"
+   "hyp": "çevreye karşı daha duyarlı yaşamaya başlayabilir çevrecilik hareketleri ne katılabilir hatta geleceğin sorunlarını biraz olsun azaltabilmek için aktivist bile olabiliriz"
   },
   {
    "id": "0288_1629",
    "ref": "bazı raporlarda resmi ölü sayısını sekiz olduğu belirtiliyor resmi raporlar da 30 kişinin yaralandığını doğruluyor fakat kesin sayılar henüz bilinmiyor",
-   "hyp": "bazı raporlar da resmi ölü sayısını 8 olduğu bilir tiliyor resmi raporlarda 30 kişinin ve yaralandığını doğruluyor fakat kesin sayılar yeniz bilimmiyor"
+   "hyp": "bazı raporlar da resmi ölü sayısını sekiz olduğu bilir tiliyor resmi raporlarda 30 kişinin ve yaralandığını doğruluyor fakat kesin sayılar yeniz bilirmiyor"
   },
   {
    "id": "0289_1577",
@@ -1463,22 +1463,22 @@
   {
    "id": "0290_1605",
    "ref": "anakaraya olan uzaklıktan dolayı memeliler yolculuğa çıkamadılar bu da dev kaplumbağayı galapagos ta otlayan ana hayvan haline getirdi",
-   "hyp": "anak kareye olan uzaklıktan dolayı memeller yolculuğa çıkamadılar bu da dev kapılmayı galapagos ta otteyen ana hayvan herne getirdik"
+   "hyp": "anak kareye olan uzaklıktan dolayı memeller yolculuğa çıkamadılar bu da dev kapılmayı galapagos ta otteyen ana hayvan her ne getirdik"
   },
   {
    "id": "0291_1561",
    "ref": "çoğu semte rahat ve sağlam olan küçük japon minibüsleriyle ulaşım sağlanır",
-   "hyp": "çoğu semtler rahat ve sağlam olan küçük japon minibüsleriyle ulaşımı sağlamış"
+   "hyp": "çoğu sente rahat ve sağlam olan küçük japon minibüsleriyle ulaşım sağlamış"
   },
   {
    "id": "0292_1511",
    "ref": "kısa süre sonra çevik kuvvet ekipmanları giyen görevliler avluya girdi ve hükümlüleri biber gazıyla etkisiz hale getirdi",
-   "hyp": "kısasür ve sonra çevik kuvvet ekip manları giyen göreviler avlaya girdi ve hükümlüleri bir dergazıyla etkisiz hale getirdi"
+   "hyp": "kısasür ve sonra çevik kuvvet ekip manaligi yan göreviler avlaya girdi ve hükümlüleri bir dergazıyla etkisiz hale getirdi"
   },
   {
    "id": "0293_1588",
    "ref": "polise göre fotoğrafçıya çarpan aracın şoförünün cezai kovuşturma ile yüzyüze gelme ihtimali düşük",
-   "hyp": "polise göre fotoğrafçaya çarpan aracığın sofruunun cezayı kavuşturma ile yüz üze gelmek ihtimali düşük"
+   "hyp": "polise göre fotoğrafçaya çarpan aracın sofruunun cezayı kavuşturma ile yüz üze gelmek ihtimali düşük"
   },
   {
    "id": "0294_1659",
@@ -1488,17 +1488,17 @@
   {
    "id": "0295_1603",
    "ref": "hem sivil hem de askeri operasyonlarda kullanılan uçakların bakımının iyi yapılmadığı ve eski bir filoya sahip olan iran da hava kazaları sıklıkla meydana gelmektedir",
-   "hyp": "hem civil hem de askeri operasyonlarda kullanılan uçakların bakımının iyi yapılmadı ve eski bir fluya sahip olan iranda hava kazaları sıplırtamaydanı gelmektedir"
+   "hyp": "hem civil hem de askeri operasyonlarda kullanılan uçakların bakımının iyi yapılmadı ve eski bir fluya sahip olan iran da hava kazaları sıplırtamaydanı gelmektedir"
   },
   {
    "id": "0296_1555",
    "ref": "kilise bahçesinde birkaç mezarın üzerinde mermerden yapılmış ilginç güvercinlerin heykelleri var",
-   "hyp": "kirlis a bahçesinde birkaç mezarıın üzerinde mermerdan yapılmış ilginç güvercimlerin heykerleri var"
+   "hyp": "kirlis a bahçesinde birkaç mezarı üzerinde mermerdan yapılmış ilginç güvercimlerin heykelleri var"
   },
   {
    "id": "0297_1543",
    "ref": "hasta bazı ebola virüs vakalarının ortaya çıktığı nijerya da bulunmuştu",
-   "hyp": "hasta bazı ebola bir rus vakalarının ortaya çıktığı nijar ya da bulunmuştu"
+   "hyp": "hastan bazı ebola bir rus vakalarının ortaya çıktığı nijar ya da bulunmuştu"
   },
   {
    "id": "0298_1524",
@@ -1508,7 +1508,7 @@
   {
    "id": "0299_1621",
    "ref": "başlangıçta giyim doğudaki bizans kültüründen büyük ölçüde etkilenmiştir",
-   "hyp": "başlangıçta giyin doğudaki byzantz kötürümden büyük ölçüde etkilenmiştir"
+   "hyp": "başlangıçta giyin doğudaki byzantium un bir köçüde etkilenmiştir"
   },
   {
    "id": "0300_1573",
@@ -1518,12 +1518,12 @@
   {
    "id": "0301_1618",
    "ref": "kuzey kısım ya da sentinel dağları antarktika nın en yüksek dağları olan vinson masifi ni içerir ve zirve noktası 4892 m lik vinson dağı dır",
-   "hyp": "kuzey kısım ya da sentin eldeaları antaktika nın en yüksek dağları olan 1000 son masifini içerir ve zirve noktası 4 892 metrelik 1000 son dağıdır"
+   "hyp": "kuzey kısım ya da sentinel dağları antaktika nın en yüksek dağları olan 1 son masifini içerir ve zirve noktası 4 892 metrelik 1 son dağıdır"
   },
   {
    "id": "0302_1574",
    "ref": "kış aldatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren donma noktasının altına iner fakat rüzgar ve nem bir araya gelerek termometrenin gösterdiğinden daha soğuk hissetmenize neden olur",
-   "hyp": "kış aldatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren domman okdasının altına iner fakat rüzgar ve nem bir araya gelerek termometrenin gösterdiğinden daha soğuk hissetmenize neden olur"
+   "hyp": "kış aldatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren domman noktasının altına iner fakat rüzgar ve nem bir araya gelerek termometrenin gösterdiğinden daha soğuk hissetmenize neden olur"
   },
   {
    "id": "0303_1510",
@@ -1533,7 +1533,7 @@
   {
    "id": "0304_1590",
    "ref": "başlıca yerel birası number one dır çok karmaşık bir bira olmasa da hoş ve ferahlatıcıdır diğer yerel birasının adı da manta dır",
-   "hyp": "başlayacak yeral birası numbar wandır çok karmış bir biri olması da hoş ve ferahlıdır diğer yeral birinin adı da mantadır"
+   "hyp": "başlayacağı yeral birası numbar vandır çok karmış bir biri olması da hoş ve ferahlıdır diğer yeral birinin adı da mantadır"
   },
   {
    "id": "0305_1619",
@@ -1543,7 +1543,7 @@
   {
    "id": "0306_1606",
    "ref": "portekizliler onu yıktılar ve casa branca adıyla yeniden inşa ettiler ancak 1755 teki bir depremden sonra onu terk ettiler",
-   "hyp": "portekizler on yıktılar ve kazabran kağıdıyla yenildi mi işay ettiler ancak 1255 teki bir depremden sonra onu terk ettiler"
+   "hyp": "portekizler on yıktılar ve kazabranka adıyla yenildi mi işay ettiler ancak 1255 teki bir depremden sonra onu terk ettiler"
   },
   {
    "id": "0307_1651",
@@ -1558,32 +1558,32 @@
   {
    "id": "0309_1581",
    "ref": "amazon altı mile varan genişliğiyle aynı zamanda dünya üzerindeki en geniş nehirdir",
-   "hyp": "amazon 6 mv genişliği ile aynı zamanda dünya üzerindeki en geniş nehirdir"
+   "hyp": "amazon altı bile varan genişliğiyle aynı zamanda dünya üzerindeki en geniş nehirdir"
   },
   {
    "id": "0310_1569",
    "ref": "rapor amerika birleşik devletleri nde ortadoğu ya karşı politika hakkında açık bir müzakere ve bir uzlaşma istemiyle başlıyor",
-   "hyp": "rapor amerika birleşik devletlerinde orta duya karışı politi kahakkında açık bin müzakere ve bir uzaşma istemiyle başlıyor"
+   "hyp": "rapor amerikabil lişiklerinde ortadığı yakarışı politika hakkında açık bir müzakere ve bir uzajma istemiyle başlıyor"
   },
   {
    "id": "0311_1591",
    "ref": "eski meclis sözcüsü newt gingrich teksas valisi rick perry ve kongre üyesi michele bachmann sırasıyla dördüncü beşinci ve altıncı oldular",
-   "hyp": "eski meclis sözüsü nipt gingrich tek sas valisi rikperi ve kongreyi lisi michelle bachman sırası ile 4 5 ve 6 oldular"
+   "hyp": "eski meclis sözüsü nived gingrich tek sas valisi rikperi ve kongreyi lisi michel bachman sırası ile doğruduncu beşinci ve altıncı oldular"
   },
   {
    "id": "0312_1614",
    "ref": "gece görüşü ile birlikte geceleri çok iyi görebilirler ve aynı zamanda son derece gizlice hareket edebilirler oselolar avlarının ortamı ile bütünleşerek onları yakalarlar",
-   "hyp": "gece görüşü ile birlikte geceleri çok iyi görebilirler ve aynı zamanda son derece gizlice hareket edebilirler oselolar avlarının ortamıyla bütünleşerek onları yakalarlar"
+   "hyp": "gece görüşüyle birlikte geceleri çok iyi görebilirler ve aynı zamanda son derece gizlice hareket edebilirler oselolar avlarının ortamıyla bütünleşerek onları yakalarlar"
   },
   {
    "id": "0313_1549",
    "ref": "söz konusu tezler bireylerin yetişkin oldukları döneme kadar olgunlaşırken içselleştirilen belirli gereksinim ve veya istekleri bulunduğunu ortaya koymaktadır",
-   "hyp": "tövz konusu tezler bireylerin yetişkin oldukları döneme kadar olgunlaşırken içselliştirilen bilirli gereksinim veya istekleri bulunduğunu ortaya koymaktadır"
+   "hyp": "tövz konusu tezler biraylerin yetişkin oldukları döneme kadar olgunlaşırken içselliştirilen bilirli gereksinin ve veya istekleri bulunduğunu ortaya koymaktadır"
   },
   {
    "id": "0314_1522",
    "ref": "teknoloji çözümü sanal bir tur sunarak getirir öğrenciler müzedeki yapıları inceleyebilir bir akvaryumu ziyaret edebilir veya sınıfta otururken güzel sanat eserlerinin büyüsüne kapılabilir",
-   "hyp": "teknoloji çözümü sanal bir tur sunarak getirir öğrenciler müze deki yapılan incileri bilir bir akvar yumaz yarat edebilir veya sınafta otururken güzel sanat eserlerin büyüsüne kapılabilir"
+   "hyp": "teknoloji çözümü sanal bir tur sunarak getirir öğrenciler müze deki yapılır incileri bilir bir akvar yumaz yarat edebilir veya sınırtta otururken güzel sanat eserlerin büyüsüne kapılabilir"
   },
   {
    "id": "0315_1561",
@@ -1593,17 +1593,17 @@
   {
    "id": "0316_1614",
    "ref": "gece görüşü ile birlikte geceleri çok iyi görebilirler ve aynı zamanda son derece gizlice hareket edebilirler oselolar avlarının ortamı ile bütünleşerek onları yakalarlar",
-   "hyp": "gece görüşüyle birlikte geceleri çok iyi görebilirler ve aynı zamanda son dereci gezice hareket edebilirler oselolar ağlarının ortamı ile vütündeşerek onları yakalarlar"
+   "hyp": "gece görüşüyle birlikte geceleri çok iyi görebilirler ve aynı zamanda son dereci geziyecek hareket edebilirler oselolar ağlarının ortamı ile bütünleşerek onları yakalarlar"
   },
   {
    "id": "0317_1641",
    "ref": "fakat ormanlar sadece mangrov bataklıkları değildir ganj ovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarını da içerirler",
-   "hyp": "fakat ormanlar sadece mangrobataklıkları değildir gancovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarında içerirler"
+   "hyp": "fakat ormanlar sadece mangrobataklıkları değildir gancı ovasını bir zamanlar kaplayan büyük ormanların kalan son parçalarında içerirler"
   },
   {
    "id": "0318_1515",
    "ref": "bu martelly nin dört yıl içindeki beşinci geçici seçim konseyi olacak",
-   "hyp": "bu martellinin 4 yıl içindeki 5 geçici seçim konseyi olacak"
+   "hyp": "bu martellinin dört yıl içindeki beşinci geçici seçim konseyi olacak"
   },
   {
    "id": "0319_1631",
@@ -1613,32 +1613,32 @@
   {
    "id": "0320_1572",
    "ref": "hükumet binalarının çevresinde üç bomba daha iki saat içerisinde patladı",
-   "hyp": "3 bomba daha 2 saat içerisinde patladı"
+   "hyp": "hükümet binalarının çevresinde 3 bomba daha 2 saat içerisinde patladı"
   },
   {
    "id": "0321_1543",
    "ref": "hasta bazı ebola virüs vakalarının ortaya çıktığı nijerya da bulunmuştu",
-   "hyp": "hastan bazı ev olabilüsünün vakalarının ortaya çıktığı nişar yada bulunmuştu"
+   "hyp": "hastan bazı evola bir üstünün vakalarının ortaya çıktığı nişar yada bulunmuştu"
   },
   {
    "id": "0322_1585",
    "ref": "zamanla yeni nüfus yeni çevresine uyum sağlamaya başladıkça diğer popülasyondan gittikçe daha farklı görünmeye başlarlar",
-   "hyp": "zamanla yenilip us yeni çevresine uyum salamaya başladıkça diğer popülasyonla gittikçe daha farklı görünmeye başlarlar"
+   "hyp": "zamanla yenilip uymus alamaya başladıkça diğer population la gidikçe daha farklı görünmeye başlarlar"
   },
   {
    "id": "0323_1582",
    "ref": "ibrani ailesinin yaşamının çoğu açık havada geçiyordu",
-   "hyp": "ibrahim le ailesini yaşamının çol açık havada geçiyordu"
+   "hyp": "ibrahim le ailesini yaşamının çolğu açık havada geçiyordu"
   },
   {
    "id": "0324_1574",
    "ref": "kış aldatıcı bir şekilde soğuk olabilir sıcaklıklar nadiren donma noktasının altına iner fakat rüzgar ve nem bir araya gelerek termometrenin gösterdiğinden daha soğuk hissetmenize neden olur",
-   "hyp": "kış aldatıcı bir şekilde soğuk olabilir sizaklar nadiren dolman noktasının altına iner fakat rüzgar ve nem bir araya gelerek terminin gösterdimden daha soğuk hissetmenize neden olur"
+   "hyp": "kış aldatıcı bir şekilde soğuk olabilir sizaklar nadiren dolman noktasının altına iner fakat rüzgar ve nem bir araya gelerek terminin gösterdiğinden daha soğuk hissetmenize neden olur"
   },
   {
    "id": "0325_1658",
    "ref": "günde sadece on sekiz tane madalya alınma imkanı olduğu için birkaç ülke madalya sahnesine çıkmayı başaramadı",
-   "hyp": "günde sadece 18 tane madaliye alınmayın kana olduğu için birkaç ülke madaliye sahnesini çıkmayı başaramadı"
+   "hyp": "günde sadece 18 tane madali alınmayın kanı olduğu için birkaç ülke madaliye sahnesini çıkmayı başaramadı"
   },
   {
    "id": "0326_1569",
@@ -1648,12 +1648,12 @@
   {
    "id": "0327_1567",
    "ref": "yılın en büyük turnuvası aralık ayında las cañitas taki polo sahalarında gerçekleştirilir",
-   "hyp": "yılın en büyük tur numası aralık ayında las kanit hastaki polo sağlığında gerçekleştirilir"
+   "hyp": "yılın en büyük turunuması aralık ayında las kanitasıdaki polo sahalarında gerçekleştirilir"
   },
   {
    "id": "0328_1572",
    "ref": "hükumet binalarının çevresinde üç bomba daha iki saat içerisinde patladı",
-   "hyp": "hükümet binalarının içerisinde 3 bölümada 2 saat içerisinde patladı"
+   "hyp": "hükümet binalarının içerisinde üç bölümüme de iki saat içerisinde patladı"
   },
   {
    "id": "0329_1633",
@@ -1668,27 +1668,27 @@
   {
    "id": "0331_1579",
    "ref": "bu noktada ırak ta yapılacak eylemlerin mezhep savaşlarını artan şiddeti veya kaosa kayışı durduracağını kimsenin garanti edemeyeceği konusunda uyarıyor",
-   "hyp": "bu noktada uyraktan yapılacak eğlenlerin mesep savaşlarını artan şiddeti veya kalsa kıyışı durduracağını kimsenin garanti edemeyeceği konusunda uyuruyor"
+   "hyp": "bu noktada uyraktan yapılacak eğlenlerin mesep savaşlarını artan şiddeti veya kalsa kıyışı durduracağını kimsenin garanti edemeyeceği konusunda uyuyor"
   },
   {
    "id": "0332_1569",
    "ref": "rapor amerika birleşik devletleri nde ortadoğu ya karşı politika hakkında açık bir müzakere ve bir uzlaşma istemiyle başlıyor",
-   "hyp": "rapor amerika birleşik devletlerinde orta doğu yakarjı politi kağık kında açık bir müzakere ve bir uzlaşma istemiyle başlıyor"
+   "hyp": "rapor amerika birleşik devletlerinde orta doğu yakarjı politiğke hakkında açık bir müzakere ve bir uzlaşma istemiyle başlıyor"
   },
   {
    "id": "0333_1649",
    "ref": "japonya da ilk kiraz çiçeği partileri imparator tarafından düzenleniyor ve yalnızca kendisi ve imparatorluk mahkemesi çevresindeki diğer aristokrasi üyeleri katılabiliyordu",
-   "hyp": "japonya da ilk kiras çişeyi partileri imparotor tarafından düzenleniyor ve yalnızca kendisi ve imparotorluk mahkemesi çevresindeki diğer aristoprasi üyeleri katılabiliyordu"
+   "hyp": "japonya da ilk kiras çişeyi partileri imparator tarafından düzenleniyor ve yalnızca kendisi ve imparatorluk mahkemesi çevresindeki diğer aristoprasi üyeleri katılabiliyordu"
   },
   {
    "id": "0334_1528",
    "ref": "bazı festivaller küçük çocuklu aileler için özel kamp alanlarına sahiptir",
-   "hyp": "bazı festivaller küçük çocuklu aileler için özel kamp alanlarına sahiptir"
+   "hyp": "bazı festi varlar küçük çocuklu aileler için özel kam alanlarına sahiptir"
   },
   {
    "id": "0335_1617",
    "ref": "kruger ulusal parkı knp güney afrika nın kuzey doğusunda yer alır ve doğuda mozambik kuzeyde zimbabve sınırı boyunca uzanır ve güney sınırı timsah nehri nden oluşur",
-   "hyp": "kruger ulusal parkı knp güney afrika nın kuzey doğusunda yer alır ve doğuda mozambik kuzey de zimbab vesınır boyunca uzanır ve güney sınır ı timsah nehrinden oluşur"
+   "hyp": "kuru ger ulusal parkı knp güney afrika nın kuzey doğusunda yer alır ve doğuda mozambik kuzey de zimba besinları boyunca uzanır ve güney sınırı timsah nehrinden oluşur"
   },
   {
    "id": "0336_1517",
