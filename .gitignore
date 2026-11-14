@@ -1,0 +1,24 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Datasets and large model weights
+wsp/data/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.parquet
+*.wav
+*.mp3
+*.flac
+
+# Temporary logs
+*.log
