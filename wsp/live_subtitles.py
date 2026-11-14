@@ -471,6 +471,12 @@ def run_gui(transcriber: LiveTranscriber):
 
 
 def main():
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
     parser = argparse.ArgumentParser(description="Live Microphone Turkish Subtitles (WSP Whisper)")
     parser.add_argument("--device", type=int, default=None, help="Microphone input device index (see --list-devices)")
     parser.add_argument("--threshold", type=float, default=0.012, help="Voice activity RMS threshold (default: 0.012)")
@@ -487,7 +493,7 @@ def main():
     transcriber.start_stream()
 
     print("\n============================================================")
-    print("  🎙️  CANLI TÜRKÇE ALTYAZI AKTİF (WSP Whisper-Base)")
+    print("  [MIC] CANLI TÜRKÇE ALTYAZI AKTİF (WSP Whisper-Base)")
     print("  Mikrofonunuza Türkçe konuşabilirsiniz.")
     print("  Çıkmak için altyazı penceresinde 'Esc' veya Ctrl+C basın.")
     print("============================================================\n", flush=True)
