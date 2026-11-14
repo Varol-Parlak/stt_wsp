@@ -75,8 +75,14 @@ Since $\text{LN}_0(h_t)$ subtracts the mean across the 512 channels, $\sum_{i=1}
 * [`wsp/fetch_fast.py`](wsp/fetch_fast.py): Downloads `openai/whisper-base` and Google FLEURS Turkish (`tr_tr`) `dev` (338 clips) and `test` (743 clips).
 * [`wsp/inspect_weights.py`](wsp/inspect_weights.py) & [`wsp/analyze.py`](wsp/analyze.py): Weight-space statistics, SVD effective rank, language embedding geometry, and error anatomy.
 * [`wsp/edits.py`](wsp/edits.py): Implements all Weight-Space Programming edits (`A`–`G`), dev sweeps, and final model export (`wsp/out/whisper-base-tr-wsp.safetensors`).
+* [`wsp/live_subtitles.py`](wsp/live_subtitles.py): Real-time Turkish microphone subtitle overlay (floating always-on-top desktop subtitle bar + terminal output, with live toggle between `WSP`, `Baseline`, and side-by-side `WSP vs Base` comparison).
 * [`wsp/transcribe_file.py`](wsp/transcribe_file.py): CLI script to transcribe any Turkish audio file with the WSP-edited weights.
 * [`wsp/out/`](wsp/out/): Full JSON evaluation outputs (`baseline_dev.json`, `baseline_test.json`, `wsp_dev.json`, `wsp_test.json`, and `edits_log.jsonl`).
+
+### Live Microphone Subtitles
+```bash
+.venv\Scripts\python.exe wsp/live_subtitles.py
+```
 
 ### Reproduce
 ```bash
