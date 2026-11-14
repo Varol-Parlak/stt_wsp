@@ -91,32 +91,74 @@ def get_split_features(proc, split: str, total_n: int):
     return _mmap_cache[split]
 
 
+_enc_mmap_cache = {}
+
+
+def get_split_pre_ln_encoder(proc, model, split: str, total_n: int):
+    """Build or memory-map pre-LayerNorm encoder states (N, 1500, 512) in fp16 on disk.
+    Because encoder layers 0..5 are untouched by our edits (Edit C only edits encoder.layer_norm),
+    applying model.encoder.layer_norm to these states is exact and skips the 6-layer encoder on sweeps.
+    """
+    if split not in _enc_mmap_cache:
+        npy_path = DATA / f"enc_pre_ln_{split}_{total_n}_fp32.npy"
+        if not npy_path.exists():
+            all_feats = get_split_features(proc, split, total_n)
+            mm = np.lib.format.open_memmap(npy_path, mode="w+", dtype=np.float32, shape=(total_n, 1500, 512))
+            orig_ln = model.model.encoder.layer_norm
+            model.model.encoder.layer_norm = torch.nn.Identity()
+            try:
+                for i in range(0, total_n, 32):
+                    f = torch.from_numpy(np.array(all_feats[i:i + 32])).to(DEVICE, model.dtype)
+                    h = model.model.encoder(f).last_hidden_state
+                    mm[i:i + len(f)] = h.float().cpu().numpy()
+            finally:
+                model.model.encoder.layer_norm = orig_ln
+            mm.flush()
+            del mm
+        _enc_mmap_cache[split] = np.load(npy_path, mmap_mode="r")
+    return _enc_mmap_cache[split]
+
+
 @torch.no_grad()
-def transcribe(proc, model, samples, batch_size=32, cache=True, **gen_kw):
+def transcribe(proc, model, samples, batch_size=64, cache=True, use_enc_cache=True, bf16=False, **gen_kw):
+    from transformers.modeling_outputs import BaseModelOutput
     kw = dict(language="turkish", task="transcribe", num_beams=1, max_new_tokens=200)
     kw.update(gen_kw)
     hyps = []
-    if samples and "split" in samples[0]:
-        split = samples[0]["split"]
-        d = DATA / f"fleurs_tr_{split}"
-        total_n = len(json.loads((d / "meta.json").read_text(encoding="utf-8")))
-        all_feats = get_split_features(proc, split, total_n)
-        for i in range(0, len(samples), batch_size):
-            batch = samples[i:i + batch_size]
-            idxs = [s["idx"] for s in batch]
-            feats = torch.from_numpy(np.array(all_feats[idxs])).to(DEVICE, model.dtype)
-            ids = model.generate(feats, **kw)
-            hyps += proc.batch_decode(ids, skip_special_tokens=True)
-    else:
-        for i in range(0, len(samples), batch_size):
-            batch = samples[i:i + batch_size]
-            feats = torch.stack([
-                proc.feature_extractor(_read_audio(s["path"]), sampling_rate=16000,
-                                       return_tensors="pt").input_features[0]
-                for s in batch
-            ]).to(DEVICE, model.dtype)
-            ids = model.generate(feats, **kw)
-            hyps += proc.batch_decode(ids, skip_special_tokens=True)
+    import contextlib
+    ctx = torch.autocast("cuda", dtype=torch.bfloat16) if (bf16 and DEVICE == "cuda") else contextlib.nullcontext()
+    with ctx:
+        if samples and "split" in samples[0]:
+            split = samples[0]["split"]
+            d = DATA / f"fleurs_tr_{split}"
+            total_n = len(json.loads((d / "meta.json").read_text(encoding="utf-8")))
+            if use_enc_cache and split == "dev":
+                all_pre_ln = get_split_pre_ln_encoder(proc, model, split, total_n)
+                for i in range(0, len(samples), batch_size):
+                    batch = samples[i:i + batch_size]
+                    idxs = [s["idx"] for s in batch]
+                    pre_ln = torch.from_numpy(np.array(all_pre_ln[idxs])).to(DEVICE, model.dtype)
+                    enc_out = model.model.encoder.layer_norm(pre_ln)
+                    ids = model.generate(encoder_outputs=BaseModelOutput(last_hidden_state=enc_out), **kw)
+                    hyps += proc.batch_decode(ids, skip_special_tokens=True)
+            else:
+                all_feats = get_split_features(proc, split, total_n)
+                for i in range(0, len(samples), batch_size):
+                    batch = samples[i:i + batch_size]
+                    idxs = [s["idx"] for s in batch]
+                    feats = torch.from_numpy(np.array(all_feats[idxs])).to(DEVICE, model.dtype)
+                    ids = model.generate(feats, **kw)
+                    hyps += proc.batch_decode(ids, skip_special_tokens=True)
+        else:
+            for i in range(0, len(samples), batch_size):
+                batch = samples[i:i + batch_size]
+                feats = torch.stack([
+                    proc.feature_extractor(_read_audio(s["path"]), sampling_rate=16000,
+                                           return_tensors="pt").input_features[0]
+                    for s in batch
+                ]).to(DEVICE, model.dtype)
+                ids = model.generate(feats, **kw)
+                hyps += proc.batch_decode(ids, skip_special_tokens=True)
     return hyps
 
 
