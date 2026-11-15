@@ -3,7 +3,7 @@
 A 3-way comparison on **`openai/whisper-base`** (72.6M parameters) for Turkish Speech-to-Text (`google/fleurs` `tr_tr`):
 1. **Untouched Baseline** — `openai/whisper-base` out of the box.
 2. **Weight-Space Programming (WSP)** — training-free, gradient-free surgical weight edits (`0.0628%` of parameters) designed by inspecting attention heads and LayerNorm nullspace geometry.
-3. **LoRA Fine-Tuning** — gradient-based low-rank adaptation trained on FLEURS Turkish `train` on Google Colab (T4 GPU) and hot-swapped locally (`~4.2 MB` adapter).
+3. **LoRA Fine-Tuning** — gradient-based low-rank adaptation trained on FLEURS Turkish `train` on Google Colab (A100 GPU) and hot-swapped locally (`~4.2 MB` adapter).
 
 ---
 
@@ -13,7 +13,7 @@ A 3-way comparison on **`openai/whisper-base`** (72.6M parameters) for Turkish S
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Untouched Baseline** | None | 0 | 0 (`0.00%`) | `33.82%` | `10.75%` | `1` | `30.79%` | `8.35%` | `0` | — |
 | **WSP (`G=0.12, N=1.0, E=1.0`)** | None (`0` clips) | 0 | `45,568` (`0.06%`) | `30.24%` | `8.04%` | `0` | `30.78%` | `8.31%` | `0` | `54` / `51` |
-| **LoRA Fine-Tune (Colab T4)** | FLEURS `train` | ~600 steps | `1,179,648` (`1.62%`) | `28.50%` | `7.25%` | `0` | **`27.42%`** | **`7.34%`** | `1` | **`344` / `225`** |
+| **LoRA Fine-Tune (Colab A100)** | FLEURS `train` | ~600 steps | `1,179,648` (`1.62%`) | `28.50%` | `7.25%` | `0` | **`27.42%`** | **`7.34%`** | `1` | **`344` / `225`** |
 
 ### How the WSP Edit (`0.0628%`) Works
 - **`Edit G` (`32,768` params):** Scales `L2.encoder_attn.out_proj` head 6 by `-12%` (isolated via 96-head leave-one-out attribution) to stop repetition loops without hurting clean self-attention.
@@ -29,9 +29,9 @@ A 3-way comparison on **`openai/whisper-base`** (72.6M parameters) for Turkish S
 - **Weight-Space Programming (WSP)**
   - **Pros:** **Zero training data, zero gradients, ~1 second to apply**; eliminates repetition loops (`1 -> 0`) and drops `dev` WER by `-3.58%` (`33.82% -> 30.24%`) with minimal collateral regressions (`54` improved vs `51` worse on `test`).
   - **Cons:** Cannot teach new Turkish vocabulary or acoustics it never learned; nullspace/head edits mostly generalize to known failure modes (`-0.01%` net on `test`).
-- **LoRA Fine-Tuning (Colab T4)**
+- **LoRA Fine-Tuning (Colab A100)**
   - **Pros:** Directly learns Turkish acoustics, suffixes, and spelling; biggest real-world gain (`30.79% -> 27.42%` test WER, `344` clips improved); tiny hot-swappable `~4.2 MB` adapter.
-  - **Cons:** Needs ~1.8 GB labeled Turkish audio and GPU training time (~10–15 min on Colab T4); can still occasionally loop (`1` loop on `test`).
+  - **Cons:** Needs ~1.8 GB labeled Turkish audio and GPU training time (~10–15 min on Colab A100); can still occasionally loop (`1` loop on `test`).
 
 ---
 
